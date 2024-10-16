@@ -1,0 +1,125 @@
+url: https://phanstiellab.github.io/plotgardener
+
+home:
+  links:
+  - text: View the publication
+    href: https://doi.org/10.1093/bioinformatics/btac057
+
+template:
+  params:
+    bootswatch: lumen
+
+pkgdown:
+  as_is: true
+  
+authors:
+  Nicole Kramer:
+    href: https://github.com/nekramer
+  Eric S. Davis:
+    href: https://github.com/EricSDavis
+  Craig Wenger:
+    href: https://github.com/cwenger
+  Sarah Parker:
+    href: https://github.com/sarmapar
+  Douglas H. Phanstiel:
+    href: https://github.com/dphansti
+
+navbar:
+  type: default
+  left:
+    - icon: fa-home fa-lg
+      href: index.html
+    - text: Our Philosophy
+      href: articles/guides/our_philosophy.html
+    - text: Introduction to plotgardener
+      href: articles/introduction_to_plotgardener.html
+    - text: Articles
+      menu:
+        - text: The plotgardener Page
+          href: articles/guides/plotgardener_page.html
+        - text: Reading Data for plotgardener
+          href: articles/guides/reading_data_for_plotgardener.html
+        - text: Plotting Multi-omic Data  
+          href: articles/guides/plotting_multiomic_data.html
+        - text: Plot Annotations
+          href: articles/guides/annotations.html  
+        - text: plotgardener Meta Functions 
+          href: articles/guides/plotgardener_meta_functions.html
+        - text: Bioconductor Integration
+          href: articles/guides/bioconductor_integration.html
+        - text: Incorporating ggplots and other grid-based Bioconductor visualizations
+          href: articles/guides/incorporating_ggplots.html
+        - text: Ideograms and Shapes
+          href: articles/guides/ideograms_and_shapes.html
+        - text: Plot Aesthetics
+          href: articles/guides/aesthetics.html
+    - text: Reference
+      href: reference/index.html
+  right:
+    - icon: fab fa-github fa-lg
+      href: https://github.com/PhanstielLab/plotgardener
+
+reference:
+  - title: "About plotgardener"
+    contents:
+      - plotgardener
+
+  - title: "Page layout functions"
+    contents:
+      - starts_with("page")
+
+  - title: "Reading functions"
+    contents:
+      - starts_with("read")
+
+  - title: "Plotting functions"
+  - subtitle: "Genomics"
+    contents:
+      - plotGenes
+      - plotGenomeLabel
+      - plotHicRectangle
+      - plotHicSquare
+      - plotHicTriangle
+      - plotIdeogram
+      - plotManhattan
+      - plotPairs
+      - plotPairsArches
+      - plotRanges
+      - plotSignal
+      - plotMultiSignal
+      - plotTranscripts
+  - subtitle: "Shapes and Basic Elements"
+  - contents:
+      - plotCircle
+      - plotLegend
+      - plotPolygon
+      - plotRaster
+      - plotRect
+      - plotSegments
+      - plotText
+  - subtitle: "External"
+  - contents:
+      - plotGG
+
+  - title: "Annotation functions"
+    contents:
+      - starts_with("anno")
+
+  - title: "Meta functions"
+    contents:
+      - assembly
+      - defaultPackages
+      - genomes
+      - pgParams
+      - c
+      - colorby
+      - mapColors
+      - calcSignalRange
+
+figures:
+  fig.height: 7
+  fig.width: 8.2
+  fig.asp: ~
+  dpi: 150
+
+
