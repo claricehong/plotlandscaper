@@ -103,7 +103,7 @@
 #' pageGuideHide()
 #' @export
 require(gridtext)
-annoHeatmapLegend_modified <- function(plot, orientation = "v", fontsize = 8,
+annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
                                 fontcolor = "dark grey", scientific = FALSE,
                                 digits = 1, ticks = FALSE, breaks = NULL,
                                 border = FALSE, x, y, width, height,
