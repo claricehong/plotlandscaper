@@ -7,19 +7,19 @@ test_that("Viewport conversions", {
         default.units = "inches"
     )
     expect_equal(
-        plotgardener:::vp_topLeft(testVP),
+        plotlandscaper:::vp_topLeft(testVP),
         list(unit(0.5, "inches"), unit(1.5, "inches"))
     )
     expect_equal(
-        plotgardener:::vp_bottomLeft(testVP),
+        plotlandscaper:::vp_bottomLeft(testVP),
         list(unit(0.5, "inches"), unit(0.5, "inches"))
     )
     expect_equal(
-        plotgardener:::vp_topRight(testVP),
+        plotlandscaper:::vp_topRight(testVP),
         list(unit(1.5, "inches"), unit(1.5, "inches"))
     )
     expect_equal(
-        plotgardener:::vp_bottomRight(testVP),
+        plotlandscaper:::vp_bottomRight(testVP),
         list(unit(1.5, "inches"), unit(0.5, "inches"))
     )
 
@@ -30,7 +30,7 @@ test_that("Viewport conversions", {
         default.units = "inches"
     )
     expect_equal(
-        plotgardener:::adjust_vpCoords(testVP),
+        plotlandscaper:::adjust_vpCoords(testVP),
         list(unit(1, "inches"), unit(0.75, "inches"))
     )
 })
@@ -47,9 +47,9 @@ test_that("Viewport order, naming, and numbering", {
         just = c("left", "top"), default.units = "inches",
         fill = "black", linecolor = "black", flip = TRUE
     ))
-    expect_equal(plotgardener:::viewport_name(arches$grobs$vp), "arches1")
+    expect_equal(plotlandscaper:::viewport_name(arches$grobs$vp), "arches1")
     expect_setequal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         "arches1"
     )
     expect_equal(current.viewport()$name, "page")
@@ -63,7 +63,7 @@ test_that("Viewport order, naming, and numbering", {
         just = c("left", "top"), default.units = "inches"
     ))
     expect_setequal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         c("arches1", "signal1_h")
     )
     suppressMessages(plotPairsArches(
@@ -75,13 +75,13 @@ test_that("Viewport order, naming, and numbering", {
         fill = "black", linecolor = "black", flip = TRUE
     ))
     expect_setequal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         c("arches1", "signal1_h", "arches2")
     )
 
     pagePlotRemove(plot = arches)
     expect_setequal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         c("signal1_h", "arches2")
     )
     
@@ -99,7 +99,7 @@ test_that("Below-y coordinate calculation", {
         x = 0.5, y = 0.5, width = 2, height = 2,
         just = c("left", "top"), default.units = "inches"
     ))
-    expect_equal(plotgardener:::plot_belowY("0b"), unit(2.5, "inches"))
+    expect_equal(plotlandscaper:::plot_belowY("0b"), unit(2.5, "inches"))
 })
 
 test_that("draw parameter and pagePlotPlace", {
@@ -123,7 +123,7 @@ test_that("draw parameter and pagePlotPlace", {
         draw = FALSE
     ))
     expect_equal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         NULL
     )
 
@@ -133,7 +133,7 @@ test_that("draw parameter and pagePlotPlace", {
         just = c("left", "top"), default.units = "inches"
     ))
     expect_setequal(
-        unlist(plotgardener:::current_viewports()),
+        unlist(plotlandscaper:::current_viewports()),
         c("signal1_h")
     )
     expect_equal(signalPlot$x, unit(0.5, "inches"))
@@ -147,7 +147,7 @@ test_that("page unit conversions", {
                    "y" = unit(0.5, "inches"),
                    "width" = unit(1, "inches"),
                    "height" = unit(1, "inches"))
-    expect_equal(plotgardener:::convert_page(testObject),
+    expect_equal(plotlandscaper:::convert_page(testObject),
                  list("x" = unit(0.5, "inches"),
                       "y" = unit(2.5, "inches"),
                       "width" = unit(1, "inches"),
@@ -158,7 +158,7 @@ test_that("page unit conversions", {
                         "y" = unit(0.5, "npc"),
                         "width" =  unit(1, "npc"),
                         "height" = unit(1, "npc"))
-    expect_equal(plotgardener:::convert_page(testObject2),
+    expect_equal(plotlandscaper:::convert_page(testObject2),
                  list("x" = unit(1.5, "inches"),
                       "y" = unit(1.5, "inches"),
                       "width" = unit(3, "inches"),
@@ -207,7 +207,7 @@ test_that("annotation viewports", {
             x = 0.25, y = 2.25, height = 0.75,
             just = c("left", "top"), default.units = "inches"
         ))
-    expect_equal(plotgardener:::getAnnoViewport(genesPlot),
+    expect_equal(plotlandscaper:::getAnnoViewport(genesPlot),
                  genesPlot$grobs$children$background$vp)
     
 
@@ -221,6 +221,6 @@ test_that("annotation viewports", {
         x = 2, y = 0.5, width = 3, height = 1.5,
         just = "top", default.units = "inches"
     ))
-    expect_equal(plotgardener:::getAnnoViewport(hicPlot),
+    expect_equal(plotlandscaper:::getAnnoViewport(hicPlot),
                  hicPlot$outsideVP)
 })

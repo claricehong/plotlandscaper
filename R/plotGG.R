@@ -1,4 +1,4 @@
-#' Plot a ggplot2 plot, gtable, or grob object in a plotgardener layout
+#' Plot a ggplot2 plot, gtable, or grob object in a plotlandscaper layout
 #' 
 #' @usage plotGG(
 #'     plot,
@@ -17,7 +17,7 @@
 #' combined with a numeric value specifying ggplot y-location.
 #' The character value will
 #' place the ggplot y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying ggplot width.
 #' @param height A numeric or unit object specifying ggplot height.
 #' @param just Justification of ggplot relative to its (x, y) location.
@@ -29,7 +29,7 @@
 #' @param default.units A string indicating the default units to use
 #' if \code{x}, \code{y}, \code{width}, or \code{height} are only given
 #' as numerics. Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #'
 #' @return Returns a \code{pg_gg} object containing

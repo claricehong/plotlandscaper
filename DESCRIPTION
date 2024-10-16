@@ -1,4 +1,4 @@
-Package: plotgardener
+Package: plotlandscaper
 Title: Coordinate-Based Genomic Visualization Package for R
 Version: 1.11.3
 Date: 2024-06-28
@@ -10,11 +10,11 @@ Maintainer: Nicole Kramer <nekramer27@gmail.com>,
 Description: 
     Coordinate-based genomic visualization package for R. It grants users
     the ability to programmatically produce complex, multi-paneled figures. Tailored for
-    genomics, plotgardener allows users to visualize large complex genomic datasets and
+    genomics, plotlandscaper allows users to visualize large complex genomic datasets and
     provides exquisite control over how plots are placed and arranged on a page. 
 Depends: R (>= 4.1.0)
 License: MIT + file LICENSE
-URL: https://phanstiellab.github.io/plotgardener, https://github.com/PhanstielLab/plotgardener
+URL: https://phanstiellab.github.io/plotlandscaper, https://github.com/PhanstielLab/plotlandscaper
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Imports:
@@ -70,4 +70,4 @@ Suggests:
     TxDb.Hsapiens.UCSC.hg19.knownGene
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-BugReports: https://github.com/PhanstielLab/plotgardener/issues
+BugReports: https://github.com/PhanstielLab/plotlandscaper/issues

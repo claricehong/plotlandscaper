@@ -1,4 +1,4 @@
-#' Create a page for a plotgardener layout
+#' Create a page for a plotlandscaper layout
 #' 
 #' @usage pageCreate(
 #'     width = 8.5,
@@ -27,7 +27,7 @@
 #' @param showGuides A logical value indicating whether to draw a
 #' black border around the entire page and guiding rulers along the top and
 #' left side of the page. Default value is \code{showOutline = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #'
 #' @examples
@@ -109,7 +109,7 @@ pageCreate <- function(width = 8.5, height = 11, default.units = "inches",
     if (!"unit" %in% class(page$width)) {
         if (!is.numeric(page$width)) {
             stop("`width` is neither a unit object nor a numeric value. ",
-                "Cannot create `plotgardener` page.", call. = FALSE)
+                "Cannot create `plotlandscaper` page.", call. = FALSE)
         }
 
         if (is.null(page$default.units)) {
@@ -131,7 +131,7 @@ pageCreate <- function(width = 8.5, height = 11, default.units = "inches",
     if (!"unit" %in% class(page$height)) {
         if (!is.numeric(page$height)) {
             stop("`height` is neither a unit object or a numeric value. ",
-                "Cannot create `plotgardener` page.", call. = FALSE)
+                "Cannot create `plotlandscaper` page.", call. = FALSE)
         }
 
         if (is.null(page$default.units)) {

@@ -1,7 +1,7 @@
 # VERSION 1.11.2
 ## NEW FEATURES
 
-* `plotgardener` now supports .(m)cool files for Hi-C data! Functions for 
+* `plotlandscaper` now supports .(m)cool files for Hi-C data! Functions for 
 reading and extracting features from .(m)cool files include:
     - `readCool`
     - `readCoolBpResolutions`
@@ -116,7 +116,7 @@ Version bump for Bioconductor 3.16 release.
 # CHANGES IN VERSION 1.3.8 AND 1.3.9
 ## BUG FIXES
 
-* Fixed vignette links in "Introduction to plotgardener" vignette.
+* Fixed vignette links in "Introduction to plotlandscaper" vignette.
 
 # CHANGES IN VERSION 1.3.7
 ## BUG FIXES 
@@ -212,7 +212,7 @@ genes.
 
 # CHANGES IN VERSION 1.1.15
 
-* Citation linked for `plotgardener` publication in Bioinformatics.
+* Citation linked for `plotlandscaper` publication in Bioinformatics.
 
 # CHANGES IN VERSION 1.1.14
 

@@ -28,7 +28,7 @@
 #' Default value is \code{scipen = 999}.
 #' @param axisLine A logical value indicating whether to show the axis line.
 #' Default value is \code{axisLine = FALSE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -98,7 +98,7 @@ annoYaxis <- function(plot, at = NULL, label = TRUE, main = TRUE,
 
     if (is.null(yInternal$plot)) stop("argument \"plot\" is missing, ",
                                         "with no default.", call. = FALSE)
-    check_page(error = "Cannot add an y-axis without a `plotgardener` page.")
+    check_page(error = "Cannot add an y-axis without a `plotlandscaper` page.")
 
     # =========================================================================
     # SAVE USER'S SCIPEN AND SET OURS TEMPORARILY

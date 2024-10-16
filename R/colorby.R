@@ -1,4 +1,4 @@
-#' Handle plotgardener color scaling parameters
+#' Handle plotlandscaper color scaling parameters
 #'
 #' \code{colorby} should be used to create a set of parameters
 #' that specify color scaling for the functions \code{plotPairs},

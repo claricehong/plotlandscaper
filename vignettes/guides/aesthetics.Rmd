@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE
 )
-library(plotgardener)
+library(plotlandscaper)
 library(grid)
 library(plotgardenerData)
 ```
 
-`plotgardener` plots are extremely customizable in appearance. In this article 
+`plotlandscaper` plots are extremely customizable in appearance. In this article 
 we will outline some of the major aesthetic customizations, including general 
 features and specific plot type customizations.
 
@@ -69,11 +69,11 @@ General valid parameters include:
 
 Additional fonts for the `fontfamily` argument can be imported with the 
 packages `extrafont` and `showtext`. This makes it possible to incorporate 
-special fonts like Times New Roman, Arial, etc. into `plotgardener` figures.
+special fonts like Times New Roman, Arial, etc. into `plotlandscaper` figures.
 
 # Backgrounds and baselines
 
-By default, `plotgardener` plots have transparent backgrounds when placed on a 
+By default, `plotlandscaper` plots have transparent backgrounds when placed on a 
 `page`. In many functions, this background color can be changed with the 
 parameter `bg`.
 
@@ -107,7 +107,7 @@ genesPlot <- plotGenes(
 )
 ```
 This makes it easy to clearly see the precise dimensional boundaries of 
-`plotgardener` plots.
+`plotlandscaper` plots.
 
 Some plots also benefit from baselines to quickly show where y = 0. This can 
 aid in data interpretation and guide plot annotation placement. Baselines can
@@ -145,16 +145,16 @@ pileupPlot <- plotRanges(
 
 # Gene and transcript plot aesthetics
 
-`plotgardener` provides many useful features specific for enhancing gene and 
+`plotlandscaper` provides many useful features specific for enhancing gene and 
 transcript visualizations:
 
 ## Labels
 
-Since `plotgardener` utilizes `TxDb` objects, `orgDb` objects, and internal 
-citation information, `plotgardener` has access to numerous gene and transcript 
+Since `plotlandscaper` utilizes `TxDb` objects, `orgDb` objects, and internal 
+citation information, `plotlandscaper` has access to numerous gene and transcript 
 identifiers and can customize annotation labels in a variety of ways. 
 
-By default, `plotgardener` will rank gene labels according to citation number to 
+By default, `plotlandscaper` will rank gene labels according to citation number to 
 prevent label overcrowding. However, we can provide our own list of 
 prioritized genes to label in a plot. For example, if we plot the hg19 genes 
 in the region `chr2:1000000-20000000`, our plot will show these labels:
@@ -328,7 +328,7 @@ group of negative strand transcripts.
 
 # Hi-C plot customizations
 
-`plotgardener` includes many types of customizations for Hi-C plots. `plotgardener` 
+`plotlandscaper` includes many types of customizations for Hi-C plots. `plotlandscaper` 
 provides 3 different Hi-C plotting functions based on the desired plot shape:
 
 - `plotHicSquare()`: Plots a square, symmetrical Hi-C plot with genomic 

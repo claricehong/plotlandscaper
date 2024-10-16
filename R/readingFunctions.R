@@ -182,7 +182,7 @@ checkAssemblyMatch <- function(data, assembly){
     if (!is.na(genome)){
         if (genome != assembly$Genome){
             warning("Input data assembly detected as ",
-                    genome, " and plotgardener assembly ",
+                    genome, " and plotlandscaper assembly ",
                     "detected as ", assembly$Genome, ".",
                     .call = FALSE)
         }

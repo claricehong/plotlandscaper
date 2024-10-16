@@ -1,9 +1,9 @@
 #' Reshow guides drawn with \code{pageCreate},
 #' \code{pageGuideHorizontal}, and \code{pageGuideVertical}
 #'
-#' @seealso \link[plotgardener]{pageCreate},
-#' \link[plotgardener]{pageGuideHorizontal},
-#' \link[plotgardener]{pageGuideVertical}
+#' @seealso \link[plotlandscaper]{pageCreate},
+#' \link[plotlandscaper]{pageGuideHorizontal},
+#' \link[plotlandscaper]{pageGuideVertical}
 #'
 #' @return None.
 #'
@@ -43,7 +43,7 @@
 #' @export
 pageGuideShow <- function() {
     if (length(get("guide_grobs", envir = pgEnv)$children) == 0) {
-        stop("No `plotgardener` page guides were previously drawn.")
+        stop("No `plotlandscaper` page guides were previously drawn.")
     }
 
     add_guideGrobs <- function(child) {

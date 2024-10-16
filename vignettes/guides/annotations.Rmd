@@ -15,19 +15,19 @@ knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE
 )
-library(plotgardener)
+library(plotlandscaper)
 library(grid)
 library(GenomicRanges)
 library(plotgardenerData)
 ```
 
-`plotgardener` is modular and separates plotting and annotating into two different
+`plotlandscaper` is modular and separates plotting and annotating into two different
 categories of functions. To specify which plot to annotate within an 
 annotation function, each annotation function has a `plot` parameter that 
-accepts `plotgardener` plot objects. This will facilitate in inheriting genomic 
+accepts `plotlandscaper` plot objects. This will facilitate in inheriting genomic 
 region and plot location information. In this article we will go through some 
 of the major types of annotations used to create accurate and informative 
-`plotgardener` plots.
+`plotlandscaper` plots.
 
 All the data included in this article can be found in the supplementary
 package `plotgardenerData`.

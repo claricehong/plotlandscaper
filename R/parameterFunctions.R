@@ -56,7 +56,7 @@ parseParams <- function(params = params,
         .Data = defaultArgs,
         class = class
     )
-    object <- lapply(object, eval, rlang::ns_env("plotgardener"))
+    object <- lapply(object, eval, rlang::ns_env("plotlandscaper"))
 
     return(object)
 }

@@ -51,7 +51,7 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param palette A function describing the color palette to use for
 #' representing scale of interaction scores. Default value is
@@ -69,7 +69,7 @@
 #' with a numeric value specifying rectangle Hi-C plot y-location.
 #' The character value will
 #' place the rectangle Hi-C plot y relative to the bottom of the most
-#' recently plotted plot according to the units of the plotgardener page.
+#' recently plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying the width of the
 #' Hi-C plot rectangle.
 #' @param height A numeric or unit object specifying the height of the
@@ -86,7 +86,7 @@
 #' as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should
 #' be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param quiet A logical indicating whether or not to print messages.
 #'
@@ -130,13 +130,13 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' This function is similar is \link[plotgardener]{plotHicTriangle} but
+#' This function is similar is \link[plotlandscaper]{plotHicTriangle} but
 #' will fill in additional pixels around the
 #' the triangular portion of the plot to make a rectangle. The x-axis
 #' represents the genomic coordinates and the y-axis corresponds to distance in
 #' Hi-C bins.
 #'
-#' A rectangle Hi-C plot can be placed on a plotgardener coordinate
+#' A rectangle Hi-C plot can be placed on a plotlandscaper coordinate
 #' page by providing plot placement parameters:
 #' \preformatted{
 #' plotHicRectangle(data, chrom,
@@ -151,8 +151,8 @@
 #'                     chromstart = NULL, chromend = NULL)
 #' }
 #'
-#' @seealso \link[plotgardener]{readHic}, \link[plotgardener]{readCool},
-#' \link[plotgardener]{plotHicTriangle}
+#' @seealso \link[plotlandscaper]{readHic}, \link[plotlandscaper]{readCool},
+#' \link[plotlandscaper]{plotHicTriangle}
 #'
 #' @export
 plotHicRectangle <- function(data, resolution = "auto", zrange = NULL,

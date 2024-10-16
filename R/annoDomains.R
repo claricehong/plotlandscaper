@@ -29,7 +29,7 @@
 #' }
 #' @param linecolor A character value specifying the color of the domain
 #' annotations. Default value is \code{linecolor = "black"}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -360,7 +360,7 @@ annoDomains <- function(plot, data, half = "inherit",
     # =========================================================================
 
     check_page(error = "Cannot annotate Hi-C domains without a
-                `plotgardener` page.")
+                `plotlandscaper` page.")
     if (is.null(domainsInternal$plot)) {
         stop("argument \"plot\" is missing, ",
             "with no default.",

@@ -1,4 +1,4 @@
-#' Plot text within a plotgardener layout
+#' Plot text within a plotlandscaper layout
 #' 
 #' @usage plotText(
 #'     label,
@@ -30,7 +30,7 @@
 #' specifying text y-locations.
 #' The character vector will place text y-locations relative to the
 #' bottom of the most recently plotted plot according to the
-#' units of the plotgardener page.
+#' units of the plotlandscaper page.
 #' @param just Justification of text relative to its (x, y) location.
 #' If there are two values, the first value specifies horizontal
 #' justification and the second value specifies vertical justification.
@@ -40,7 +40,7 @@
 #' @param default.units A string indicating the default units to use if
 #' \code{x} or \code{y} are only given as numerics or numeric vectors.
 #' Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -53,7 +53,7 @@
 #'
 #' ## Plot text, adjusting fontsize and fontface
 #' plotText(
-#'     label = "plotgardener", fontsize = 14, fontface = "bold",
+#'     label = "plotlandscaper", fontsize = 14, fontface = "bold",
 #'     x = 1, y = 1, just = "center", default.units = "inches"
 #' )
 #'
@@ -126,7 +126,7 @@ plotText <- function(label, fontcolor = "black", fontsize = 12, rot = 0,
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot text without a `plotgardener` page.")
+    check_page(error = "Cannot plot text without a `plotlandscaper` page.")
     if (is.null(text$label)) stop("argument \"label\" is missing, ",
                                     "with no default.", call. = FALSE)
     if (is.null(text$x)) {

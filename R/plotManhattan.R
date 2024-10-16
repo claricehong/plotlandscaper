@@ -54,15 +54,15 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param fill A single character value, a vector, or a 
-#' \link[plotgardener]{colorby} object specifying fill colors of data points.
+#' \link[plotlandscaper]{colorby} object specifying fill colors of data points.
 #' For a Manhattan plot with multiple chromosomes, a vector of colors 
 #' will be used to color points of different chromosomes.
 #' Default value is \code{fill = "black"}.
 #' @param pch A numeric value or numeric vector specifying point symbols.
-#' If \link[plotgardener]{colorby} object is supplied for \code{fill},
+#' If \link[plotlandscaper]{colorby} object is supplied for \code{fill},
 #' point symbols will be mapped to
 #' \code{colorby} values. Default value is \code{pch = 19}.
 #' @param cex A numeric indicating the amount by which points should be
@@ -101,7 +101,7 @@
 #' combined with a numeric value specifying Manhattan plot y-location.
 #' The character value will
 #' place the Manhattan plot y relative to the bottom of the most
-#' recently plotted plot according to the units of the plotgardener page.
+#' recently plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying Manhattan plot width.
 #' @param height A numeric or unit object specifying Manhattan plot height.
 #' @param just Justification of Manhattan plot relative to its (x, y)
@@ -117,7 +117,7 @@
 #' as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should
 #' be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -250,7 +250,7 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' A Manhattan plot can be placed on a plotgardener coordinate page by
+#' A Manhattan plot can be placed on a plotlandscaper coordinate page by
 #' providing plot placement parameters:
 #' \preformatted{
 #' plotManhattan(data,

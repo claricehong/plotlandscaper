@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 library(plotgardenerData)
 ```
 
@@ -29,25 +29,25 @@ font_add(
     family = "ProximaNova",
     regular = system.file("extdata",
                         "proximanova-regular.otf",
-                        package = "plotgardener"
+                        package = "plotlandscaper"
     ),
     bold = system.file("extdata",
                     "proximanova-semibold.otf",
-                    package = "plotgardener"
+                    package = "plotlandscaper"
     ),
     italic = system.file("extdata",
                         "proximanova-regitalic.otf",
-                        package = "plotgardener")
+                        package = "plotlandscaper")
 )
 showtext_auto()
 ```
 
-In addition to its numerous built-in genomic functions, `plotgardener` can size 
+In addition to its numerous built-in genomic functions, `plotlandscaper` can size 
 and place `ggplots` and other `grid`-based visualizations within a 
-`plotgardener` layout. Rather than arranging these plots in a 
-relative manner, `plotgardener` can make and place these plots in absolute sizes 
+`plotlandscaper` layout. Rather than arranging these plots in a 
+relative manner, `plotlandscaper` can make and place these plots in absolute sizes 
 and locations. This makes it simple and intuitive to make complex and combined 
-`plotgardener`,`ggplot`, and other `grid` plot arrangements beyond a 
+`plotlandscaper`,`ggplot`, and other `grid` plot arrangements beyond a 
 basic grid-style layout.
 
 ## `ggplots`
@@ -290,7 +290,7 @@ plotGG(
 )
 ```
 
-In particular, `plotgardener` makes it easy to resize and place our pie charts in
+In particular, `plotlandscaper` makes it easy to resize and place our pie charts in
 a layout that overlaps our line plots without it affecting the sizing of the 
 other plots on the page:
 
@@ -417,7 +417,7 @@ plotText(label = paste("Sources: The COVID Tracking Project;",
 Heatmaps are an integral visualization to many multi-panel genomic 
 visualizations. Existing Bioconductor packages like `ComplexHeatmap` provide
 excellent methods to produce such heatmaps. Since these plots are also based
-on `grid` graphics, it is possible to incorporate them into `plotgardener` 
+on `grid` graphics, it is possible to incorporate them into `plotlandscaper` 
 figure arrangements.
 
 For example, let's say we made a heatmap representing the density of ChIP-seq
@@ -456,8 +456,8 @@ heatmap <- grid.grabExpr(draw(Heatmap(genmat,
 ```
 
 We can now pass this object into the `plotGG` function and incorporate the 
-heatmap into a `plotgardener` layout with additional figure elements made
-by `plotgardener`:
+heatmap into a `plotlandscaper` layout with additional figure elements made
+by `plotlandscaper`:
 
 ```{r eval=FALSE}
 data("GM12878_HiC_10kb")

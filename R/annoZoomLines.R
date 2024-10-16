@@ -49,7 +49,7 @@
 #' Default value is \code{linecolor = "grey"}.
 #' @param lty A numeric specifying zoom line type.
 #' Default value is \code{lty = 2}.
-#' @param params An optional \link[plotgardener]{pgParams}
+#' @param params An optional \link[plotlandscaper]{pgParams}
 #' object containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -195,7 +195,7 @@ annoZoomLines <- function(plot, chrom, chromstart = NULL, chromend = NULL,
     # =========================================================================
 
     check_page(error = paste("Cannot annotate zoom lines without a", 
-                            "`plotgardener` page."))
+                            "`plotlandscaper` page."))
     if (is.null(zoomInternal$plot)) stop("argument \"plot\" is missing, ",
                                             "with no default.", call. = FALSE)
     if (is.null(zoom$chrom)) {

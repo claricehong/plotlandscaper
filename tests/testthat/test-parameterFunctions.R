@@ -7,7 +7,7 @@ test_that("parseParams", {
         ## Access user-declared arguments of parent function like this:
         decArgs <- lapply(match.call()[-1], eval)
         ## Call parseParams like this:
-        x <- plotgardener:::parseParams(params = params, defaultArgs = defArgs, 
+        x <- plotlandscaper:::parseParams(params = params, defaultArgs = defArgs, 
                                     declaredArgs = decArgs,
                                     class = "object")
         ## Crete internal object like this:
@@ -68,20 +68,20 @@ test_that("parseParams", {
 test_that("setGP", {
     
     ## Empty gpar
-    expect_equal(plotgardener:::setGP(
+    expect_equal(plotlandscaper:::setGP(
         gpList = gpar(),
         params = NULL
     ), gpar())
     
     ## One gpar parameter replaced
-    expect_equal(plotgardener:::setGP(
+    expect_equal(plotlandscaper:::setGP(
         gpList = gpar(),
         params = NULL,
         lwd = 2
     ), gpar(lwd = 2))
 
     ## Multiple gpar parameters replaced
-    expect_equal(plotgardener:::setGP(
+    expect_equal(plotlandscaper:::setGP(
         gpList = gpar(),
         params = NULL,
         lwd = 2, lty = 2
@@ -92,42 +92,42 @@ test_that("setGP", {
 test_that("regionErrors", {
     
     ## No errors
-    expect_silent(plotgardener:::regionErrors(chromstart = 1000000,
+    expect_silent(plotlandscaper:::regionErrors(chromstart = 1000000,
                                chromend = 2000000))
     ## 0 bp wide region error
-    expect_error(plotgardener:::regionErrors(chromstart = 1000000,
+    expect_error(plotlandscaper:::regionErrors(chromstart = 1000000,
                                              chromend = 1000000))
     ## One null chromstart/chromend
-    expect_error(plotgardener:::regionErrors(chromstart = 1000000,
+    expect_error(plotlandscaper:::regionErrors(chromstart = 1000000,
                                             chromend = NULL))
     
     ## chromstart bigger than chromend
-    expect_error(plotgardener:::regionErrors(chromstart = 2000000,
+    expect_error(plotlandscaper:::regionErrors(chromstart = 2000000,
                                             chromend = 1000000))
 })
 
 test_that("justConversion", {
     
     ## left, top should be 0, 1
-    expect_equal(plotgardener:::justConversion(just = c("left", "top")),
+    expect_equal(plotlandscaper:::justConversion(just = c("left", "top")),
                  c(0, 1))
     
     ## top, left should be 0, 1
-    expect_equal(plotgardener:::justConversion(just = c("top", "left")),
+    expect_equal(plotlandscaper:::justConversion(just = c("top", "left")),
                  c(0, 1))
     
     ## Invalid just option error
-    expect_error(plotgardener:::justConversion(just = "invalid"))
+    expect_error(plotlandscaper:::justConversion(just = "invalid"))
     
 })
 
 test_that("parseAssembly", {
     
     ## Invalid default assembly
-    expect_error(plotgardener:::parseAssembly(assembly = "none"))
+    expect_error(plotlandscaper:::parseAssembly(assembly = "none"))
     
     ## Default hg19 assembly
-    expect_equal(plotgardener:::parseAssembly(assembly = "hg19"),
+    expect_equal(plotlandscaper:::parseAssembly(assembly = "hg19"),
                  structure(.Data = list("Genome" = "hg19",
                                         "TxDb" = "TxDb.Hsapiens.UCSC.hg19.knownGene",
                                         "OrgDb" = "org.Hs.eg.db",
@@ -141,7 +141,7 @@ test_that("parseAssembly", {
                                   TxDb = "TxDb",
                                   OrgDb = "OrgDb")
     
-    expect_equal(plotgardener:::parseAssembly(assembly = assemblyobject),
+    expect_equal(plotlandscaper:::parseAssembly(assembly = assemblyobject),
                  structure(.Data = list("Genome" = "testing",
                                         "TxDb" = "TxDb",
                                         "OrgDb" = "OrgDb",
@@ -157,10 +157,10 @@ test_that("defaultUnits", {
                        "y" = unit(2, "inches"),
                        "width" = unit(3, "npc"),
                        "height" = unit(4, "cm"))
-    expect_equal(plotgardener:::defaultUnits(object = testObject, 
+    expect_equal(plotlandscaper:::defaultUnits(object = testObject, 
                                          default.units = "inches"),
                  testObject)
-    expect_equal(plotgardener:::misc_defaultUnits(value = unit(1, "inches"),
+    expect_equal(plotlandscaper:::misc_defaultUnits(value = unit(1, "inches"),
                                               name = "x0",
                                               default.units = "npc"),
                  unit(1, "inches"))
@@ -170,13 +170,13 @@ test_that("defaultUnits", {
                        "y" = unit(2, "inches"),
                        "width" = 3,
                        "height" = unit(4, "cm"))
-    expect_equal(plotgardener:::defaultUnits(object = testObject, 
+    expect_equal(plotlandscaper:::defaultUnits(object = testObject, 
                                          default.units = "inches"),
                  list("x" = unit(1, "inches"),
                       "y" = unit(2, "inches"),
                       "width" = unit(3, "inches"),
                       "height" = unit(4, "cm")))
-    expect_equal(plotgardener:::misc_defaultUnits(value = 1,
+    expect_equal(plotlandscaper:::misc_defaultUnits(value = 1,
                                               name = "x0",
                                               default.units = "npc"),
                  unit(1, "npc"))
@@ -186,9 +186,9 @@ test_that("defaultUnits", {
                        "y" = "plb",
                        "width" = 3,
                        "height" = unit(4, "cm"))
-    expect_error(plotgardener:::defaultUnits(object = testObject,
+    expect_error(plotlandscaper:::defaultUnits(object = testObject,
                                          default.units = "inches"))
-    expect_error(plotgardener:::misc_defaultUnits(value = "plb",
+    expect_error(plotlandscaper:::misc_defaultUnits(value = "plb",
                                               name = "y0",
                                               default.units = "npc"))
 })

@@ -20,7 +20,7 @@
 #'
 #' @param chrom Chromosome to be plotted, as a string.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param data Custom cytoband data, as a dataframe with the following
 #' columns: "seqnames", "start", "end", "width", "strand",
@@ -49,7 +49,7 @@
 #' combined with a numeric value specifying ideogram y-location.
 #' The character value will
 #' place the ideogram y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying ideogram width.
 #' @param height A numeric or unit object specifying ideogram height.
 #' @param just Justification of ideogram relative to its (x, y) location.
@@ -63,7 +63,7 @@
 #' numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should be
 #' produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #'
 #' @return Returns a \code{ideogram} object containing relevant
@@ -95,7 +95,7 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' An ideogram can be placed on a plotgardener coordinate page by
+#' An ideogram can be placed on a plotlandscaper coordinate page by
 #' providing plot placement parameters:
 #' \preformatted{
 #' plotIdeogram(chrom,

@@ -1,9 +1,9 @@
 ---
-title: "Reading Data for plotgardener"
+title: "Reading Data for plotlandscaper"
 output:
     rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{Reading Data for plotgardener}
+    %\VignetteIndexEntry{Reading Data for plotlandscaper}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
@@ -19,16 +19,16 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 library(plotgardenerData)
 ```
 
-`plotgardener` handles a wide array of genomic data types in various formats 
+`plotlandscaper` handles a wide array of genomic data types in various formats 
 and file types. Not only does it work with `data.frames`, `data.tables`, 
 `tibbles`, and Bioconductor `GRanges` and `GInteractions` objects, but 
 it can also read in common genomic file types like BED, BEDPE, bigWig, 
-and .hic files. While files can be read directly into `plotgardener` plotting 
-functions, `plotgardener` also provides functions for reading in these large 
+and .hic files. While files can be read directly into `plotlandscaper` plotting 
+functions, `plotlandscaper` also provides functions for reading in these large 
 genomic data sets to work with them within the R environment:
 
 - `readBigwig()`: Read in entire bigWig files, or read in specific 

@@ -24,7 +24,7 @@
 #' Default value is \code{rot = 0}.
 #' @param check.overlap A logical value to indicate whether to check for
 #' and omit overlapping text. Default value is \code{check.overlap = FALSE}.
-#' @param plot Input plotgardener plot to internally place text relative to.
+#' @param plot Input plotlandscaper plot to internally place text relative to.
 #' @param x A numeric vector or unit object specifying text x-location.
 #' @param y A numeric vector or unit object specifying text y-location.
 #' @param just Justification of text relative to its (x, y) location.
@@ -36,7 +36,7 @@
 #' @param default.units A string indicating the default units to use if
 #' \code{x} or \code{y} are only given as numerics or numeric vectors.
 #' Default value is \code{default.units = "native"}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -47,7 +47,7 @@
 #' ## Create a page
 #' pageCreate(width = 4, height = 4, default.units = "inches")
 #'
-#' ## Plot text relative to a plotgardener plot
+#' ## Plot text relative to a plotlandscaper plot
 #' library(plotgardenerData)
 #' data("IMR90_HiC_10kb")
 #' hicPlot <- plotHicSquare(
@@ -119,7 +119,7 @@ annoText <- function(label, fontcolor = "black", fontsize = 12, rot = 0,
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot annotate text without a `plotgardener` page.")
+    check_page(error = "Cannot annotate text without a `plotlandscaper` page.")
     if (is.null(text$label)) stop("argument \"label\" is missing, ",
                                     "with no default.", call. = FALSE)
     if (is.null(textInternal$plot)) stop("argument \"plot\" is missing, ",

@@ -1,4 +1,4 @@
-url: https://phanstiellab.github.io/plotgardener
+url: https://phanstiellab.github.io/plotlandscaper
 
 home:
   links:
@@ -31,19 +31,19 @@ navbar:
       href: index.html
     - text: Our Philosophy
       href: articles/guides/our_philosophy.html
-    - text: Introduction to plotgardener
+    - text: Introduction to plotlandscaper
       href: articles/introduction_to_plotgardener.html
     - text: Articles
       menu:
-        - text: The plotgardener Page
+        - text: The plotlandscaper Page
           href: articles/guides/plotgardener_page.html
-        - text: Reading Data for plotgardener
+        - text: Reading Data for plotlandscaper
           href: articles/guides/reading_data_for_plotgardener.html
         - text: Plotting Multi-omic Data  
           href: articles/guides/plotting_multiomic_data.html
         - text: Plot Annotations
           href: articles/guides/annotations.html  
-        - text: plotgardener Meta Functions 
+        - text: plotlandscaper Meta Functions 
           href: articles/guides/plotgardener_meta_functions.html
         - text: Bioconductor Integration
           href: articles/guides/bioconductor_integration.html
@@ -57,12 +57,12 @@ navbar:
       href: reference/index.html
   right:
     - icon: fab fa-github fa-lg
-      href: https://github.com/PhanstielLab/plotgardener
+      href: https://github.com/PhanstielLab/plotlandscaper
 
 reference:
-  - title: "About plotgardener"
+  - title: "About plotlandscaper"
     contents:
-      - plotgardener
+      - plotlandscaper
 
   - title: "Page layout functions"
     contents:

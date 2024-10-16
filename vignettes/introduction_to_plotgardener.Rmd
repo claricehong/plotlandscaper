@@ -1,12 +1,12 @@
 ---
-title: Introduction to plotgardener
+title: Introduction to plotlandscaper
 author: "Nicole Kramer, Eric S. Davis, Craig Wenger, Sarah Parker, \
     Erika Deoudes, Michael Love, Douglas H. Phanstiel"
 output: 
     rmarkdown::html_vignette: 
         md_extensions: +grid_tables
 vignette: >
-    %\VignetteIndexEntry{Introduction to plotgardener}
+    %\VignetteIndexEntry{Introduction to plotlandscaper}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 library(plotgardenerData)
 ```
 
@@ -31,44 +31,44 @@ library(plotgardenerData)
 <img src="../man/figures/pg-hex-text.png" align="right" width="140px" 
 style="padding-left:20px; background-color:white; border-color: transparent" />
 ```
-`plotgardener` is a coordinate-based, genomic visualization package for R. Using
-`grid` graphics, `plotgardener` empowers users to programmatically and flexibly
+`plotlandscaper` is a coordinate-based, genomic visualization package for R. Using
+`grid` graphics, `plotlandscaper` empowers users to programmatically and flexibly
 generate multi-panel figures. Tailored for genomics for a variety of genomic
-assemblies, `plotgardener` allows users to visualize large, complex genomic
+assemblies, `plotlandscaper` allows users to visualize large, complex genomic
 datasets while providing exquisite control over the arrangement of plots.
 
-`plotgardener` functions can be grouped into the following categories:
+`plotlandscaper` functions can be grouped into the following categories:
 
 -   **Page layout functions:**
 
-Functions for creating `plotgardener` page layouts, drawing, showing, and hiding
-guides, as well as placing plots on the page. See [The plotgardener
-Page](https://phanstiellab.github.io/plotgardener/articles/guides/plotgardener_page.html)
+Functions for creating `plotlandscaper` page layouts, drawing, showing, and hiding
+guides, as well as placing plots on the page. See [The plotlandscaper
+Page](https://phanstiellab.github.io/plotlandscaper/articles/guides/plotgardener_page.html)
 
 -   **Reading functions:**
 
 Functions for quickly reading in large biological datasets. See [Reading Data
-for plotgardener](https://phanstiellab.github.io/plotgardener/articles/guides/reading_data_for_plotgardener.html)
+for plotlandscaper](https://phanstiellab.github.io/plotlandscaper/articles/guides/reading_data_for_plotgardener.html)
 
 -   **Plotting functions:**
 
 Contains genomic plotting functions, functions for placing `ggplots` and `base`
 plots, as well as functions for drawing simple shapes. See [Plotting Multi-omic
-Data](https://phanstiellab.github.io/plotgardener/articles/guides/plotting_multiomic_data.html)
+Data](https://phanstiellab.github.io/plotlandscaper/articles/guides/plotting_multiomic_data.html)
 
 -   **Annotation functions:**
 
 Enables users to add annotations to their plots, such as legends, axes, and
-scales. See [Plot Annotations](https://phanstiellab.github.io/plotgardener/articles/guides/annotations.html)
+scales. See [Plot Annotations](https://phanstiellab.github.io/plotlandscaper/articles/guides/annotations.html)
 
 -   **Meta functions:**
 
-Functions that display `plotgardener` properties or operate on other
-`plotgardener` functions, or constructors for `plotgardener` objects. See
-[plotgardener Meta Functions](https://phanstiellab.github.io/plotgardener/articles/guides/plotgardener_meta_functions.html)
+Functions that display `plotlandscaper` properties or operate on other
+`plotlandscaper` functions, or constructors for `plotlandscaper` objects. See
+[plotlandscaper Meta Functions](https://phanstiellab.github.io/plotlandscaper/articles/guides/plotgardener_meta_functions.html)
 
-This vignette provides a quick start guide for utilizing `plotgardener`. For
-in-depth demonstrations of `plotgardener`'s key features, see the additional
+This vignette provides a quick start guide for utilizing `plotlandscaper`. For
+in-depth demonstrations of `plotlandscaper`'s key features, see the additional
 articles. For detailed usage of each function, see the function-specific
 reference examples with `?function()` (e.g. `?plotPairs()`).
 
@@ -77,7 +77,7 @@ All the data included in this vignette can be found in the supplementary package
 
 # Quick plotting
 
-`plotgardener` plotting functions contain 4 types of arguments:
+`plotlandscaper` plotting functions contain 4 types of arguments:
 
 1.  Data reading argument (`data`)
 
@@ -90,9 +90,9 @@ All the data included in this vignette can be found in the supplementary package
     plot (`norm`, `fill`, `fontcolor`, ...) that vary between functions
 
 The quickest way to plot data is to omit the placement arguments. This will
-generate a `plotgardener` plot that fills up the entire graphics window and
+generate a `plotlandscaper` plot that fills up the entire graphics window and
 cannot be annotated. **These plots are only meant to be used for quick**
-**genomic data inspection and not as final `plotgardener` plots.** The only
+**genomic data inspection and not as final `plotlandscaper` plots.** The only
 arguments that are required are the data arguments and locus arguments. The
 examples below show how to quickly plot different types of genomic data with
 plot defaults and included data types. To use your own data, replace the `data`
@@ -101,8 +101,8 @@ argument with either a path to the file or an R object as described above.
 ## Hi-C matrices
 
 ```{r hic_quickplot, eval=TRUE, echo=TRUE, message=FALSE}
-## Load plotgardener
-library(plotgardener)
+## Load plotlandscaper
+library(plotlandscaper)
 
 ## Load example Hi-C data
 library(plotgardenerData)
@@ -119,8 +119,8 @@ plotHicSquare(
 ## Signal tracks
 
 ```{r signal_quickplot, eval=TRUE, echo=TRUE, message=FALSE}
-## Load plotgardener
-library(plotgardener)
+## Load plotlandscaper
+library(plotlandscaper)
 
 ## Load example signal data
 library(plotgardenerData)
@@ -137,8 +137,8 @@ plotSignal(
 ## Gene tracks
 
 ```{r gene_quickplot, eval=TRUE, echo=TRUE, message=FALSE}
-## Load plotgardener
-library(plotgardener)
+## Load plotlandscaper
+library(plotlandscaper)
 
 ## Load hg19 genomic annotation packages
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
@@ -154,8 +154,8 @@ plotGenes(
 ## GWAS Manhattan plots
 
 ```{r gwas_quickplot, eval=TRUE, echo=TRUE, message=FALSE}
-## Load plotgardener
-library(plotgardener)
+## Load plotlandscaper
+library(plotlandscaper)
 
 ## Load hg19 genomic annotation packages
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
@@ -173,11 +173,11 @@ plotManhattan(
 )
 ```
 
-# Plotting and annotating on the `plotgardener` page
+# Plotting and annotating on the `plotlandscaper` page
 
-To build complex, multi-panel `plotgardener` figures with annotations, we must:
+To build complex, multi-panel `plotlandscaper` figures with annotations, we must:
 
-1.  Create a `plotgardener` coordinate page with `pageCreate()`.
+1.  Create a `plotlandscaper` coordinate page with `pageCreate()`.
 
 ```{r quickpage, echo=TRUE, fig.height=4, fig.width=4, message=FALSE}
 pageCreate(width = 3.25, height = 3.25, default.units = "inches")
@@ -208,7 +208,7 @@ hicPlot <- plotHicSquare(
 )
 ```
 
-3.  Annotate `plotgardener` plot objects by passing them into the `plot`
+3.  Annotate `plotlandscaper` plot objects by passing them into the `plot`
     argument of annotation functions.
 
 ```{r eval=FALSE, echo=TRUE, message=FALSE}
@@ -244,12 +244,12 @@ annoGenomeLabel(
 ```
 
 For more information about how to place plots and annotations on a
-`plotgardener` page, check out the section [Working with plot
-objects](https://phanstiellab.github.io/plotgardener/articles/guides/plotgardener_page.html#working-with-plot-objects).
+`plotlandscaper` page, check out the section [Working with plot
+objects](https://phanstiellab.github.io/plotlandscaper/articles/guides/plotgardener_page.html#working-with-plot-objects).
 
 # Exporting plots
 
-When a `plotgardener` plot is ready to be saved and exported, we can first
+When a `plotlandscaper` plot is ready to be saved and exported, we can first
 remove all page guides that were made with `pageCreate()`:
 
 ```{r eval=FALSE, echo=TRUE, message=FALSE}
@@ -317,10 +317,10 @@ vignettes.
 
 # Future Directions
 
-We still have many ideas to add for a second version of `plotgardener`
+We still have many ideas to add for a second version of `plotlandscaper`
 including, but not limited to: grammar of graphics style plot arguments and plot
 building, templates, themes, and multi-plotting functions. If you have
-suggestions for ways we can improve `plotgardener`, please let us know!
+suggestions for ways we can improve `plotlandscaper`, please let us know!
 
 # Session Info
 

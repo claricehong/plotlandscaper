@@ -1,7 +1,7 @@
-#' Remove plotgardener plots and annotations
+#' Remove plotlandscaper plots and annotations
 #'
 #' @param plot Plot object to be removed, defined by the output
-#' of a plotgardener plotting function.
+#' of a plotlandscaper plotting function.
 #'
 #' @examples
 #' ## Load Hi-C data

@@ -1,8 +1,8 @@
-#' plotgardener: Coordinate-based Genomic Visualization Package for R
+#' plotlandscaper: Coordinate-based Genomic Visualization Package for R
 #'
-#' plotgardener is a coordinate-based genomic visualization package for R.
+#' plotlandscaper is a coordinate-based genomic visualization package for R.
 #' It grants users the ability to programmatically produce complex,
-#' multi-paneled figures. Tailored for genomics, plotgardener allows users
+#' multi-paneled figures. Tailored for genomics, plotlandscaper allows users
 #' to visualize large complex genomic datasets and
 #' provides exquisite control over how plots are placed and arranged on
 #' a page.
@@ -31,12 +31,12 @@
 #' @seealso 
 #' Useful links:
 #' \itemize{
-#'     \item \url{https://phanstiellab.github.io/plotgardener}
-#'     \item \url{https://github.com/PhanstielLab/plotgardener}
+#'     \item \url{https://phanstiellab.github.io/plotlandscaper}
+#'     \item \url{https://github.com/PhanstielLab/plotlandscaper}
 #' }
 #' @docType package
-#' @name plotgardener
-#' @useDynLib plotgardener
+#' @name plotlandscaper
+#' @useDynLib plotlandscaper
 #' @importFrom grDevices colorRampPalette
 #' @importFrom grDevices dev.size
 #' @importFrom curl has_internet

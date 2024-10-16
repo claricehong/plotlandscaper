@@ -15,14 +15,14 @@ knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE
 )
-library(plotgardener)
+library(plotlandscaper)
 library(grid)
 library(plotgardenerData)
 ```
 
 Beyond providing functions for plotting and arranging various genomic 
-datasets, `plotgardener` also gives users the functionality to plot other elements
-within a `plotgardener` page layout:
+datasets, `plotlandscaper` also gives users the functionality to plot other elements
+within a `plotlandscaper` page layout:
 
 ## Ideograms
 
@@ -108,23 +108,23 @@ article [Plot Annotations](annotations.html#genomic-region-highlights-and-zooms-
 
 ## Images and basic shapes
 
-`plotgardener` also allows users to plot images and basic shapes and elements to 
+`plotlandscaper` also allows users to plot images and basic shapes and elements to 
 further enhance and customize plot layouts. The functions `plotCircle()`, 
 `plotPolygon()`, `plotRaster()`, `plotRect()`, `plotSegments()`, 
 and `plotText()` provide an intuitive way to plot basic `grid` `grobs` 
 without requiring any knowledge of `grid` graphics.
 
-For example, we can include `plotgardener`'s Gene the Gnome in our figures!:
+For example, we can include `plotlandscaper`'s Gene the Gnome in our figures!:
 
 ```{r shapes, echo=TRUE, fig.height=7, fig.showtext=TRUE, fig.width=6}
 library(png)
 pg_type <- readPNG(system.file("images",
                         "pg-wordmark.png",
-                        package = "plotgardener"))
+                        package = "plotlandscaper"))
 
 gene_gnome <- readPNG(system.file("images",    
             "pg-gnome-hole-shadow.png",
-            package = "plotgardener" ))
+            package = "plotlandscaper" ))
 
 pageCreate(
     width = 5, height = 6, default.units = "inches",
@@ -145,12 +145,12 @@ reference examples with `?function()` (e.g. `?plotCircle()`).
 
 ## Other grob objects
 
-We saw how to add `ggplots` and `ComplexHeatmaps` to `plotgardener` layouts 
+We saw how to add `ggplots` and `ComplexHeatmaps` to `plotlandscaper` layouts 
 in the vignette 
 [Incorporating ggplots and other `grid`-based Bioconductor visualizations"](incorporating_ggplots.html) 
 with the `plotGG()` function. Beyond customizing the coordinates and dimensions 
 of `ggplots` and `grid`-based Bioconductor visualizations, `plotGG()` can also 
-be used to incorporate other `grob` and `gtable` objects. Thus, `plotgardener` 
+be used to incorporate other `grob` and `gtable` objects. Thus, `plotlandscaper` 
 allows us to easily mix and arrange most kinds of plot objects for ultimate 
 customization.
 

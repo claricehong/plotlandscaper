@@ -1,13 +1,13 @@
-#' pgParams: plotgardener parameters object
+#' pgParams: plotlandscaper parameters object
 #'
 #' Creates an object of class "pgParams" that can be used by
-#' plotgardener functions. pgParams can be used to set a set of parameters
+#' plotlandscaper functions. pgParams can be used to set a set of parameters
 #' to be shared across multiple functions.
 #'
-#' pgParams generates arguments from exported plotgardener functions at
+#' pgParams generates arguments from exported plotlandscaper functions at
 #' loading time of the package. Arguments defined in a pgParams object
-#' can be passed into the \code{params} argument of plotgardener functions.
-#' params arguments can be overridden from within plotgardener functions.
+#' can be passed into the \code{params} argument of plotlandscaper functions.
+#' params arguments can be overridden from within plotlandscaper functions.
 #'
 #' pgParams also provides an alternative region definition mechanism.
 #' Given a gene name and genome assembly, pgParams returns the appropriate
@@ -30,7 +30,7 @@
 #' Default value is \code{assembly = "hg38"}.
 #' 
 #'
-#' @param ... This function will take any plotgardener function
+#' @param ... This function will take any plotlandscaper function
 #' parameters and their values:
 #' \itemize{
 #' \item{\code{alpha}}
@@ -151,7 +151,7 @@
 #' }
 #'
 #' @return Returns an object of class \code{pgParams}
-#' containing plotgardener function arguments.
+#' containing plotlandscaper function arguments.
 #'
 #' @examples
 #' ## Load hg19 genomic annotation packages
@@ -164,7 +164,7 @@
 #' ## Optionally add more parameters
 #' p2 <- pgParams(fontsize = 10, assembly = "hg19")
 #'
-#' ## Combine parameters and pass them to a plotgardener function
+#' ## Combine parameters and pass them to a plotlandscaper function
 #' plotGenes(params = c(p1, p2))
 #' @export pgParams
 #' @export c
@@ -178,7 +178,7 @@ pgParams <- function() {}
 
 #' Combine multiple pgParams objects into a vector
 #'
-#' @param ... \link[plotgardener]{pgParams} objects to be concatenated.
+#' @param ... \link[plotlandscaper]{pgParams} objects to be concatenated.
 #' @param recursive logical. If \code{recursive = TRUE}, the function
 #' recursively descends through lists
 #' (and pairlists) combining all their elements into a vector.

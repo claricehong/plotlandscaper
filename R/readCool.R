@@ -484,7 +484,7 @@ readCoolChroms <- function(file, resolution = NULL){
 #' from a file for a given region at a given resolution. If the total amount of 
 #' data is larger than the \code{binChunkSize}, data will be read in multiple
 #' chunks. Default value is \code{binChunkSize = 5e6}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param quiet A logical indicating whether or not to print messages.
 #' 
@@ -518,7 +518,7 @@ readCoolChroms <- function(file, resolution = NULL){
 #' ## Read in data for chr2 at 2500Kb resolution 
 #' mcoolData_2500Kb <- readCool(file = mcoolFile, chrom = "2",
 #'                              resolution = 2500000)
-#' @seealso \link[plotgardener]{readHic}
+#' @seealso \link[plotlandscaper]{readHic}
 #'
 #' @importFrom rlang inform warn
 #' @export

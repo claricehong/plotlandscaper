@@ -46,7 +46,7 @@
 #' combined with a numeric value specifying legend y-location.
 #' The character value will
 #' place the legend y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying legend width.
 #' @param height A numeric or unit object specifying legend height.
 #' @param just Justification of legend relative to its (x, y) location.
@@ -60,7 +60,7 @@
 #' as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should
 #' be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'

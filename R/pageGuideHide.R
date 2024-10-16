@@ -1,4 +1,4 @@
-#' Remove guides from a plotgardener page
+#' Remove guides from a plotlandscaper page
 #'
 #' @return None.
 #'
@@ -18,7 +18,7 @@
 #' @export
 pageGuideHide <- function() {
     if (length(get("guide_grobs", envir = pgEnv)$children) == 0) {
-        stop("No `plotgardener` page guides exist.")
+        stop("No `plotlandscaper` page guides exist.")
     }
 
     ## Get the list of grobs from the guide grobs gTree and convert to gPaths

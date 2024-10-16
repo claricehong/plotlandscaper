@@ -53,15 +53,15 @@
 #' @details 
 #' This function allows for the manual mapping of a numerical or factor
 #' vector to a palette of colors. For a more automatic implementation 
-#' of this functionality in plotgardener functions,  
-#' \link[plotgardener]{colorby} objects can be used.
+#' of this functionality in plotlandscaper functions,  
+#' \link[plotlandscaper]{colorby} objects can be used.
 #' 
 #' @return 
 #' Returns a character vector of color values. If the input vector is 
 #' numerical, this vector will have additional `palette` and `range`
 #' attributes.
 #' 
-#' @seealso \link[plotgardener]{colorby}
+#' @seealso \link[plotlandscaper]{colorby}
 #' 
 #' @export
 mapColors <- function(vector, palette, range = NULL){

@@ -47,7 +47,7 @@
 #' with a numeric value specifying y-location of legend.
 #' The character value will place the legend y relative to the bottom of the
 #' most recently plotted plot according to the units of
-#' the plotgardener page.
+#' the plotlandscaper page.
 #' @param width A numeric or unit object specifying width of legend.
 #' @param height A numeric or unit object specifying height of legend.
 #' @param just Justification of heatmap legend relative to
@@ -59,7 +59,7 @@
 #' @param default.units A string indicating the default units to use if
 #' \code{x}, \code{y}, \code{width}, or \code{height} are only given as
 #' numerics. Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -199,7 +199,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
     # CALL ERRORS
     # =========================================================================
 
-    check_page(error = "Must have a `plotgardener` page with a plot before
+    check_page(error = "Must have a `plotlandscaper` page with a plot before
                 adding a heatmap legend.")
     errorcheck_annoHeatmapLegend(
         heatmapLegend = heatmapLegend,

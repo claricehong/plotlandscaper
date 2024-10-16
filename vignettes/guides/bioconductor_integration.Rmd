@@ -19,20 +19,20 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 ```
 
-`plotgardener` is designed to be flexibly compatible with typical Bioconductor 
+`plotlandscaper` is designed to be flexibly compatible with typical Bioconductor 
 classes and libraries of genomic data to easily integrate genomic data 
 analysis and visualization. In addition to handling various genomic file 
-types and `R` objects, many `plotgardener` functions can also handle `GRanges` or
-`GInteractions` objects as input data. Furthermore, `plotgardener` does not hard-code 
+types and `R` objects, many `plotlandscaper` functions can also handle `GRanges` or
+`GInteractions` objects as input data. Furthermore, `plotlandscaper` does not hard-code 
 any genomic assemblies and can utilize `TxDb`, `OrgDb`, and `BSgenome` objects 
 for various genomic annotations, including gene and transcript structures 
 and names, chromosome sizes, and nucleotide sequences. Furthermore, all cytoband
 data for ideogram plots is retrieved from the UCSC Genome Browser through 
 `AnnotationHub`. For standard genomic assemblies (i.e. hg19, hg38, mm10), 
-`plotgardener` uses a set of default packages that can be displayed by calling 
+`plotlandscaper` uses a set of default packages that can be displayed by calling 
 `defaultPackages()`:
 
 ```{r echo=TRUE, eval=TRUE}
@@ -41,16 +41,16 @@ defaultPackages("hg19")
 defaultPackages("mm10")
 ```
 
-To see which assemblies have defaults within `plotgardener`, call `genomes()`:
+To see which assemblies have defaults within `plotlandscaper`, call `genomes()`:
 
 ```{r echo=TRUE, eval=TRUE}
 genomes()
 ```
 
-`plotgardener` functions default to an "hg38" assembly, but can be customized
+`plotlandscaper` functions default to an "hg38" assembly, but can be customized
 with any of the other genomic assemblies included or a `assembly` object.
 To create custom genomic assemblies and combinations of `TxDb`, `orgDb`, and 
-`BSgenome` packages for use in `plotgardener` functions, we can use the 
+`BSgenome` packages for use in `plotlandscaper` functions, we can use the 
 `assembly()` constructor. For example, we can create our own `TxDb` 
 from the current human Ensembl release:
 
@@ -79,7 +79,7 @@ Ensembl38 <- assembly(
 )
 ```
 
-This `assembly` object can now be easily passed into `plotgardener` functions 
+This `assembly` object can now be easily passed into `plotlandscaper` functions 
 through the `assembly` parameter to use custom genomic assembly configurations.
 
 `assembly` objects are especially handy for changing the type of gene or transcript label 

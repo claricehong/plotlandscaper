@@ -38,13 +38,13 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param fill A single character value, a vector, or a 
-#' \link[plotgardener]{colorby} object specifying fill colors of range elements.
+#' \link[plotlandscaper]{colorby} object specifying fill colors of range elements.
 #' Default value is \code{fill = "#7ecdbb"}.
 #' @param linecolor A single character value, a vector, or a
-#' \link[plotgardener]{colorby} object specifying the color of the lines
+#' \link[plotlandscaper]{colorby} object specifying the color of the lines
 #' outlining range elements. Default value is \code{linecolor = NA}.
 #' Special options include:
 #' \itemize{
@@ -93,7 +93,7 @@
 #' combined with a numeric value specifying ranges plot y-location.
 #' The character value will
 #' place the ranges plot y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying ranges plot width.
 #' @param height A numeric or unit object specifying ranges plot height.
 #' @param just Justification of ranges plot relative to its (x, y) location.
@@ -107,7 +107,7 @@
 #' as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should
 #' be produced. Default value \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -154,7 +154,7 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' A ranges plot can be placed on a plotgardener coordinate page by providing
+#' A ranges plot can be placed on a plotlandscaper coordinate page by providing
 #' plot placement parameters:
 #' \preformatted{
 #' plotRanges(data, chrom,

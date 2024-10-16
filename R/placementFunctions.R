@@ -65,7 +65,7 @@ check_placement <- function(object) {
 
 
             ## 3. Need a page
-            check_page(error = paste("Must make a `plotgardener` page with",
+            check_page(error = paste("Must make a `plotlandscaper` page with",
                                     "`pageCreate()` before placing a plot."))
         }
     }

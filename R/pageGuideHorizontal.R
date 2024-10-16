@@ -1,5 +1,5 @@
 #' Draw a horizontal guideline at a specified y-coordinate
-#' on a plotgardener page
+#' on a plotlandscaper page
 #' 
 #' @usage pageGuideHorizontal(
 #'     y,
@@ -15,7 +15,7 @@
 #' Default value is \code{default.units = "inches"}.
 #' @param linecolor Character value indicating color of guideline.
 #' Default value is \code{linecolor = "grey55"}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'

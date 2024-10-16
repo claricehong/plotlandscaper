@@ -3,21 +3,21 @@ test_that("chromDataAgreement", {
     ## Ranges
     data("IMR90_ChIP_CTCF_reads")
     ## match
-    expect_silent(plotgardener:::chromDataAgreement(data = IMR90_ChIP_CTCF_reads,
+    expect_silent(plotlandscaper:::chromDataAgreement(data = IMR90_ChIP_CTCF_reads,
                                                 chrom = "chr21",
                                                 type = "ranges"))
     ## don't match
-    expect_warning(plotgardener:::chromDataAgreement(data = IMR90_ChIP_CTCF_reads,
+    expect_warning(plotlandscaper:::chromDataAgreement(data = IMR90_ChIP_CTCF_reads,
                                                 chrom = "21",
                                                 type = "ranges"))
     ## Pairs
     data("IMR90_DNAloops_pairs")
     ## match
-    expect_silent(plotgardener:::chromDataAgreement(data = IMR90_DNAloops_pairs,
+    expect_silent(plotlandscaper:::chromDataAgreement(data = IMR90_DNAloops_pairs,
                                                 chrom = "chr21",
                                                 type = "pairs"))
     ## don't match
-    expect_warning(plotgardener:::chromDataAgreement(data = IMR90_DNAloops_pairs,
+    expect_warning(plotlandscaper:::chromDataAgreement(data = IMR90_DNAloops_pairs,
                                                 chrom = "21",
                                                 type = "pairs"))
 })
@@ -29,9 +29,9 @@ test_that("genomicScale", {
     testObject <- list("chrom" = "chr1",
                     "chromstart" = NULL,
                     "chromend" = NULL,
-                    "assembly" = plotgardener:::parseAssembly("hg19"))
+                    "assembly" = plotlandscaper:::parseAssembly("hg19"))
     testObjectInternal <- list()
-    scale <- plotgardener:::genomicScale(object = testObject,
+    scale <- plotlandscaper:::genomicScale(object = testObject,
                                      objectInternal = testObjectInternal,
                                      plotType = "genes")[[2]]$xscale
     expect_equal(scale, c(1, 249250621))
@@ -40,11 +40,11 @@ test_that("genomicScale", {
     testObject <- list("chrom" = "chrHello",
                        "chromstart" = NULL,
                        "chromend" = NULL,
-                       "assembly" = plotgardener:::parseAssembly("hg19"))
-    expect_warning(plotgardener:::genomicScale(object = testObject,
+                       "assembly" = plotlandscaper:::parseAssembly("hg19"))
+    expect_warning(plotlandscaper:::genomicScale(object = testObject,
                                            objectInternal = testObjectInternal,
                                            plotType = "genes"))
-    scale2 <- suppressWarnings(plotgardener:::genomicScale(object = testObject,
+    scale2 <- suppressWarnings(plotlandscaper:::genomicScale(object = testObject,
                                         objectInternal = testObjectInternal,
                                         plotType = "genes"))[[2]]$xscale
     expect_equal(scale2, c(0, 1))
@@ -56,9 +56,9 @@ test_that("geneData", {
     library("TxDb.Hsapiens.UCSC.hg19.knownGene")
     library("org.Hs.eg.db")
     testObject <- list("chrom" = "chr1",
-                        "assembly" = plotgardener:::parseAssembly("hg19"))
+                        "assembly" = plotlandscaper:::parseAssembly("hg19"))
     testObjectInternal <- list()
     
-    expect_silent(plotgardener:::geneData(object = testObject,
+    expect_silent(plotlandscaper:::geneData(object = testObject,
                                       objectInternal = testObjectInternal))
 })

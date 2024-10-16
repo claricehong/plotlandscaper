@@ -1,4 +1,4 @@
-#' Plot genomic coordinates along the x or y-axis of a plotgardener plot
+#' Plot genomic coordinates along the x or y-axis of a plotlandscaper plot
 #' 
 #' @usage plotGenomeLabel(
 #'     chrom,
@@ -30,7 +30,7 @@
 #' @param chromstart Integer start of genome label.
 #' @param chromend Integer end of genome label.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' @param fontsize A numeric specifying text fontsize in points.
 #' Default value is \code{fontsize = 10}.
 #' @param fontcolor A character value indicating the color for text.
@@ -73,7 +73,7 @@
 #' combined with a numeric value specifying genome label y-location.
 #' The character value will
 #' place the genome label y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param length A numeric or unit object specifying length of
 #' genome label axis.
 #' @param just Justification of genome label relative to its (x, y)
@@ -85,7 +85,7 @@
 #' @param default.units A string indicating the default units to
 #' use if \code{x}, \code{y}, or \code{length} are only given as numerics.
 #' Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters or digit specifications.
 #' See \link[grid]{gpar} and \link[base]{formatC}.
@@ -289,7 +289,7 @@ plotGenomeLabel <- function(chrom, chromstart = NULL, chromend = NULL,
     }
 
     check_page(error = paste("Cannot plot a genome label without",
-                            "a `plotgardener` page."))
+                            "a `plotlandscaper` page."))
     errorcheck_plotGenomeLabel(
         scale = genomeLabelInternal$scale,
         ticks = genomeLabelInternal$at,

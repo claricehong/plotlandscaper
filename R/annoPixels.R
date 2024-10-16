@@ -40,7 +40,7 @@
 #' @param shift Numeric specifying the number of pixels on either end of
 #' main pixel in a box or circle. Numeric specifying number of pixels
 #' for the length of an arrow.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #' @param quiet A logical indicating whether or not to print messages.
@@ -588,7 +588,7 @@ annoPixels <- function(plot, data, type = "box", half = "inherit",
     # =========================================================================
 
     check_page(error = "Cannot annotate Hi-C pixels without a
-                `plotgardener` page.")
+                `plotlandscaper` page.")
     if (is.null(loopsInternal$plot)) stop("argument \"plot\" is missing, ",
                                             "with no default.", call. = FALSE)
     if (is.null(loopsInternal$data)) stop("argument \"data\" is missing, ",

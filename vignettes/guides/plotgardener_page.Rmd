@@ -1,8 +1,8 @@
 ---
-title: The plotgardener Page
+title: The plotlandscaper Page
 output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{The plotgardener Page}
+    %\VignetteIndexEntry{The plotlandscaper Page}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
@@ -15,18 +15,18 @@ knitr::opts_chunk$set(
     message = FALSE,
     warning = FALSE
 )
-library(plotgardener)
+library(plotlandscaper)
 library(grid)
 library(plotgardenerData)
 ```
 
-`plotgardener` uses a coordinate-based plotting system to define the size and 
+`plotlandscaper` uses a coordinate-based plotting system to define the size and 
 location of plots. This system makes the plotting process intuitive and 
 absolute, meaning that plots cannot be squished and stretched based 
 on their *relative* sizes. This also allows for precise control of the size 
 of each visualization and the location of all plots, annotations, and text. 
 
-All `plotgardener` page functions begin with the `page` prefix. 
+All `plotlandscaper` page functions begin with the `page` prefix. 
 
 Users can create a page in their preferred size and unit of measurement using
 `pageCreate()`. Within this function the user can also set gridlines in 
@@ -77,9 +77,9 @@ pageGuideHide()
 
 ## Coordinate systems and units
 
-`plotgardener` is compatible with numerous coordinate systems, which are 
+`plotlandscaper` is compatible with numerous coordinate systems, which are 
 flexible enough to be used in combination. Brief descriptions of the most 
-commonly used `plotgardener` coordinate systems are as follows:
+commonly used `plotlandscaper` coordinate systems are as follows:
 
 +-------------------+---------------------------------------------------------+
 | Coordinate System | Description                                             |
@@ -165,7 +165,7 @@ annoText(
 
 ## Working with plot objects
 
-In `plotgardener` all plot objects are boxes, with user-defined positions and 
+In `plotlandscaper` all plot objects are boxes, with user-defined positions and 
 sizes. All plot objects can be placed on a `page` using the placement 
 arguments (e.g. `x`, `y`, `width`, `height`, `just`, `default.units`, ...). 
 The `page` sets the origin of the plot at the top left corner of the page. 
@@ -265,7 +265,7 @@ plotText(label = "2 in", x = 1.5, y = 0.4, just = "bottom")
 plotText(label = "1 in", x = 0.4, y = 1, just = "right")
 ```
 
-`plotgardener` can make the plot with these exact dimensions:
+`plotlandscaper` can make the plot with these exact dimensions:
 
 ```{r arrange_example03, echo=TRUE, fig.height=4, fig.width=5, message=FALSE}
 ## Create page
@@ -278,7 +278,7 @@ plotRect(
 )
 ```
 
-`plotgardener` also provides the helper function `pagePlotPlace()` for placing 
+`plotlandscaper` also provides the helper function `pagePlotPlace()` for placing 
 plot objects that have been previously defined:
 
 ```{r arrange_example04, echo=TRUE, fig.height=4, fig.width=5, message=FALSE}
@@ -329,7 +329,7 @@ pagePlotRemove(plot = signalPlot)
 
 
 These functions give the users additional flexibility in how they create 
-their R scripts and `plotgardener` layouts.
+their R scripts and `plotlandscaper` layouts.
 
 ## Using the `just` parameter
 
@@ -345,7 +345,7 @@ The just parameter can be set using character strings `"left"`, `"right"`,
 
 ```{r arrange_example06, echo=FALSE, fig.height=5, fig.width=6, message=FALSE}
 ## Load libraries
-library(plotgardener)
+library(plotlandscaper)
 
 ## Create page
 pageCreate(
@@ -405,7 +405,7 @@ right/top, and 0.5 means center:
 
 ```{r arrange_example07, echo=FALSE, fig.height=5, fig.width=6, message=FALSE}
 ## Load libraries
-library(plotgardener)
+library(plotlandscaper)
 
 ## Create page
 pageCreate(
@@ -472,7 +472,7 @@ legend. Instead we can change the `just` parameter to `just=c('right', 'top')`:
 library(plotgardenerData)
 data("IMR90_HiC_10kb")
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(width = 3.25, height = 3.25, default.units = "inches")
 
 ## Plot Hi-C data with placing information

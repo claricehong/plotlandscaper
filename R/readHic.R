@@ -29,7 +29,7 @@
 #' @param altchromend Alternate chromosome integer end position
 #' for interchromosomal data.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param resolution A numeric specifying the width of each pixel.
 #' "auto" will attempt to choose a resolution in basepairs based on
@@ -52,7 +52,7 @@
 #' \item{\code{"oe"}: }{Observed/expected counts.}
 #' \item{\code{"log2oe"}: }{Log2 transformed observed/expected counts.}
 #' }
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param quiet A logical indicating whether or not to print messages.
 #'

@@ -1,4 +1,4 @@
-#' Draw a line segment within a plotgardener layout
+#' Draw a line segment within a plotlandscaper layout
 #' 
 #' @usage plotSegments(
 #'     x0,
@@ -23,7 +23,7 @@
 #' starting y-values of the line segments.
 #' The character vector will place starting y-values relative to the
 #' bottom of the most recently plotted plot according to the
-#' units of the plotgardener page.
+#' units of the plotlandscaper page.
 #' @param x1 A numeric vector or unit object indicating the stopping
 #' x-values of the line segments.
 #' @param y1 A numeric vector, unit object, or a character vector of v
@@ -31,7 +31,7 @@
 #' stopping y-values of the line segments.
 #' The character vector will place stopping y-values relative to the
 #' bottom of the most recently plotted plot according to the
-#' units of the plotgardener page.
+#' units of the plotlandscaper page.
 #' @param default.units A string indicating the default units to use
 #' if \code{x0}, \code{y0}, \code{x1}, or \code{y1} are only given as
 #' numeric vectors. Default value is \code{default.units = "inches"}.
@@ -57,7 +57,7 @@
 #' }
 #' @param arrow A list describing arrow heads to place at either end of
 #' the line segments, as produced by the \link[grid]{arrow} function.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -152,7 +152,7 @@ plotSegments <- function(x0, y0, x1, y1, default.units = "inches",
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot segment without a plotgardener page.")
+    check_page(error = "Cannot plot segment without a plotlandscaper page.")
     if (is.null(segments$x0)) stop("argument \"x0\" is missing, ",
                                     "with no default.", call. = FALSE)
     if (is.null(segments$y0)) stop("argument \"y0\" is missing, ",

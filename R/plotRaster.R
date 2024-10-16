@@ -1,4 +1,4 @@
-#' Plot a raster object within a plotgardener layout
+#' Plot a raster object within a plotlandscaper layout
 #' 
 #' @usage plotRaster(
 #'     image,
@@ -20,7 +20,7 @@
 #' raster y-locations.
 #' The character vector will place raster y relative to the bottom
 #' of the most recently plotted plot according to the units
-#' of the plotgardener page.
+#' of the plotlandscaper page.
 #' @param width A numeric vector or unit object specifying raster widths.
 #' @param height A numeric vector or unit object specifying raster heights.
 #' @param just Justification of text relative to its (x, y) location.
@@ -35,7 +35,7 @@
 #' Default value is \code{default.units = "inches"}.
 #' @param interpolate A logical value indicating whether to linearly
 #' interpolate the image. Default value is \code{interpolate = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -49,16 +49,16 @@
 #' 
 #' pg_type <- readPNG(system.file("images",
 #'     "pg-wordmark.png",
-#'     package = "plotgardener"
+#'     package = "plotlandscaper"
 #' ))
 #' 
 #' gene_gnome <- readPNG(system.file("images",
 #'     "pg-gnome-hole-shadow.png",
-#'     package = "plotgardener"
+#'     package = "plotlandscaper"
 #' ))
 #' 
 #' rlogo <- readPNG(system.file("images", "Rlogo.png", 
-#'                 package = "plotgardener"))
+#'                 package = "plotlandscaper"))
 #'
 #' ## Create page
 #' pageCreate(width = 5, height = 6)
@@ -131,7 +131,7 @@ plotRaster <- function(image, x, y, width, height, just = "center",
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot raster without a plotgardener page.")
+    check_page(error = "Cannot plot raster without a plotlandscaper page.")
     if (is.null(rast$image)) stop("argument \"image\" is ",
                                     "missing, with no default.", call. = FALSE)
     if (is.null(rast$x)) {

@@ -1,4 +1,4 @@
 library(testthat)
-library(plotgardener)
+library(plotlandscaper)
 
-test_check("plotgardener")
+test_check("plotlandscaper")

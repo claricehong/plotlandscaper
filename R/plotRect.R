@@ -1,4 +1,4 @@
-#' Plot a rectangle within a plotgardener layout
+#' Plot a rectangle within a plotlandscaper layout
 #' 
 #' @usage plotRect(
 #'     x,
@@ -22,7 +22,7 @@
 #' rectangle y-locations.
 #' The character vector will place rectangle y-locations relative to
 #' the bottom of the most recently plotted plot according to
-#' the units of the plotgardener page.
+#' the units of the plotlandscaper page.
 #' @param width A numeric vector or unit object specifying rectangle widths.
 #' @param height A numeric vector or unit object specifying rectangle heights.
 #' @param just Justification of rectangle relative to its (x, y) location.
@@ -45,7 +45,7 @@
 #' Default value is \code{fill = NA}.
 #' @param alpha Numeric value specifying color transparency.
 #' Default value is \code{alpha = 1}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -135,7 +135,7 @@ plotRect <- function(x, y, width, height, just = "center",
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot rectangle without a `plotgardener` page.")
+    check_page(error = "Cannot plot rectangle without a `plotlandscaper` page.")
     if (is.null(rect$x)) {
         stop("argument \"x\" is missing, with no default.",
             call. = FALSE

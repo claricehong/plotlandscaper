@@ -60,7 +60,7 @@
 #' @param altchromend Alternate chromosome integer end position
 #' for off-diagonal plotting or interchromosomal plotting.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param palette A function describing the color palette to use for
 #' representing scale of interaction scores.
@@ -92,7 +92,7 @@
 #' with a numeric value specifying square Hi-C plot y-location.
 #' The character value will
 #' place the square Hi-C plot y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying square Hi-C plot width.
 #' @param height A numeric or unit object specifying square Hi-C plot height.
 #' @param just Justification of square Hi-C plot relative to
@@ -107,7 +107,7 @@
 #' numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should be
 #' produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param quiet A logical indicating whether or not to print messages.
 #'
@@ -154,7 +154,7 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' A square Hi-C plot can be placed on a plotgardener coordinate page
+#' A square Hi-C plot can be placed on a plotlandscaper coordinate page
 #' by providing plot placement parameters:
 #' \preformatted{
 #' plotHicSquare(data, chrom,
@@ -169,7 +169,7 @@
 #'                 chromstart = NULL, chromend = NULL)
 #' }
 #'
-#' @seealso \link[plotgardener]{readHic}, \link[plotgardener]{readCool}
+#' @seealso \link[plotlandscaper]{readHic}, \link[plotlandscaper]{readCool}
 #'
 #' @export
 plotHicSquare <- function(data, resolution = "auto", zrange = NULL,

@@ -2,7 +2,7 @@ test_that("convert_gpath", {
     
     testGrob <- rectGrob()
     ## Grob becomes a gpath
-    expect_true(is(plotgardener:::convert_gpath(testGrob), "gPath"))
+    expect_true(is(plotlandscaper:::convert_gpath(testGrob), "gPath"))
 })
 
 test_that("check_placement", {
@@ -12,14 +12,14 @@ test_that("check_placement", {
     
     attr(testObject, "plotted") <- FALSE
     ## doesn't check if not plotted
-    expect_silent(plotgardener:::check_placement(testObject))
+    expect_silent(plotlandscaper:::check_placement(testObject))
     
     ## error one null x or y
     testObject <- list("x" = unit(3, "inches"),
                        "y" = NULL)
     
     attr(testObject, "plotted") <- TRUE
-    expect_error(plotgardener:::check_placement(testObject))
+    expect_error(plotlandscaper:::check_placement(testObject))
     
     ## error for 0 width
     testObject <- list("x" = unit(2, "inches"),
@@ -28,7 +28,7 @@ test_that("check_placement", {
                        "height" = unit(0, "inches"))
     
     attr(testObject, "plotted") <- TRUE
-    expect_error(plotgardener:::check_placement(testObject))
+    expect_error(plotlandscaper:::check_placement(testObject))
     
     ## No errors with all checks
     pageCreate()
@@ -37,7 +37,7 @@ test_that("check_placement", {
                        "width" = unit(3, "inches"),
                        "height" = unit(3, "inches"))
     attr(testObject, "plotted") <- TRUE
-    expect_silent(plotgardener:::check_placement(testObject))
+    expect_silent(plotlandscaper:::check_placement(testObject))
     
 })
 
@@ -55,7 +55,7 @@ test_that("assignRows", {
                   29073000), ]
     
     ## Message without limitLabel 
-    expect_warning(plotgardener:::assignRows(data = IMR90_ChIP_CTCF_reads[, c(2,3)],
+    expect_warning(plotlandscaper:::assignRows(data = IMR90_ChIP_CTCF_reads[, c(2,3)],
                           maxRows = 3,
                           wiggle = 10,
                           rowCol = 2, 
@@ -65,7 +65,7 @@ test_that("assignRows", {
     
     ## Message with limitLabel
     assign("pileup_grobs", gTree(), envir = pgEnv)
-    expect_warning(plotgardener:::assignRows(data = IMR90_ChIP_CTCF_reads[, c(2,3)],
+    expect_warning(plotlandscaper:::assignRows(data = IMR90_ChIP_CTCF_reads[, c(2,3)],
                                          maxRows = 3,
                                          wiggle = 10,
                                          rowCol = 2, 

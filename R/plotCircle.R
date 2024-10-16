@@ -1,4 +1,4 @@
-#' Plot a circle within a plotgardener layout
+#' Plot a circle within a plotlandscaper layout
 #' 
 #' @usage plotCircle(
 #'     x,
@@ -21,7 +21,7 @@
 #' specifying circle y-locations relative to center.
 #' The character vector will place circle y-locations relative to
 #' the bottom of the most recently plotted plot according
-#' to the units of the plotgardener page.
+#' to the units of the plotlandscaper page.
 #' @param r A numeric vector or unit object specifying radii.
 #' @param default.units A string indicating the default units to use
 #' if \code{r}, \code{x}, or \code{y} are only given as numerics or
@@ -36,7 +36,7 @@
 #' Default value is \code{fill = NA}.
 #' @param alpha Numeric value specifying color transparency.
 #' Default value is \code{alpha = 1}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -112,7 +112,7 @@ plotCircle <- function(x, y, r, default.units = "inches",
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot circle without a `plotgardener` page.")
+    check_page(error = "Cannot plot circle without a `plotlandscaper` page.")
     if (is.null(circle$x)) {
         stop("argument \"x\" is missing, with no default.",
             call. = FALSE

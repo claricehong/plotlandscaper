@@ -28,7 +28,7 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param fontsize A numeric specifying text fontsize in points.
 #' Default value is \code{fontsize = 8}.
@@ -60,7 +60,7 @@
 #' combined with a numeric value specifying genes plot y-location.
 #' The character value will
 #' place the genes plot y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying genes plot width.
 #' @param height A numeric or unit object specifying genes plot height.
 #' @param just Justification of genes plot relative to its (x, y) location.
@@ -74,7 +74,7 @@
 #' as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output
 #' should be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #'
 #' @return Returns a \code{genes} object containing
@@ -158,8 +158,8 @@
 #' labels, plotted gene labels are by default prioritized according to
 #' citation counts.
 #'
-#' @seealso \link[plotgardener]{assembly},
-#' \link[plotgardener]{genomes}, \link[plotgardener]{defaultPackages}
+#' @seealso \link[plotlandscaper]{assembly},
+#' \link[plotlandscaper]{genomes}, \link[plotlandscaper]{defaultPackages}
 #'
 #' @export
 plotGenes <- function(chrom, chromstart = NULL, chromend = NULL,

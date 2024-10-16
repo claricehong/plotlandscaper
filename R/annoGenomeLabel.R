@@ -65,7 +65,7 @@
 #' with a numeric value specifying genome label y-location.
 #' The character value will place the genome label y relative to the bottom
 #' of the most recently plotted plot according to the units of the
-#' plotgardener page.
+#' plotlandscaper page.
 #' @param just Justification of genome label relative to its (x, y) location.
 #' If there are two values, the first value specifies horizontal justification
 #' and the second value specifies vertical justification.
@@ -75,7 +75,7 @@
 #' @param default.units A string indicating the default units to use
 #' if \code{x} or \code{y} are only given as numerics.
 #' Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters or digit specifications.
 #' See \link[grid]{gpar} and \link[base]{formatC}.

@@ -38,7 +38,7 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param style Character value describing the style of arches.
 #' Default value is \code{style = "2D"}. Options are:
@@ -54,10 +54,10 @@
 #' in data specifying the arch heights. When NULL, all arches will be the 
 #' same height, filling up the given plot area.
 #' @param fill A single character value, a vector, or a 
-#' \link[plotgardener]{colorby} object specifying fill colors of arches.
+#' \link[plotlandscaper]{colorby} object specifying fill colors of arches.
 #' Default value is \code{fill = #1f4297"}.
 #' @param linecolor A single character value, a vector, or a
-#' \link[plotgardener]{colorby} object specifying the color of the lines
+#' \link[plotlandscaper]{colorby} object specifying the color of the lines
 #' outlining arches. Default value is \code{linecolor = NA}.
 #' Special options include:
 #' \itemize{
@@ -87,7 +87,7 @@
 #' combined with a numeric value specifying BEDPE arches plot y-location.
 #' The character value will
 #' place the pair arches plot y relative to the bottom of the most
-#' recently plotted plot according to the units of the plotgardener page.
+#' recently plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying pair arches plot width.
 #' @param height A numeric or unit object specifying pair arches plot height.
 #' @param just Justification of pair arches plot relative to its (x, y)
@@ -101,7 +101,7 @@
 #' numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should be
 #' produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -166,7 +166,7 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @details
-#' A pair arches plot can be placed on a plotgardener coordinate page
+#' A pair arches plot can be placed on a plotlandscaper coordinate page
 #' by providing plot placement parameters:
 #' \preformatted{
 #' plotPairsArches(data chrom,

@@ -1,4 +1,4 @@
-#' Plot a polygon within a plotgardener layout
+#' Plot a polygon within a plotlandscaper layout
 #' 
 #' @usage plotPolygon(
 #'     x,
@@ -22,7 +22,7 @@
 #' polygon vertex y-locations.
 #' The character vector will place polygon vertex y-locations relative
 #' to the bottom of the most recently plotted plot according
-#' to the units of the plotgardener page.
+#' to the units of the plotlandscaper page.
 #' @param default.units A string indicating the default units to use
 #' if \code{x} or \code{y} are only given as numeric vectors.
 #' Default value is \code{default.units = "inches"}.
@@ -42,7 +42,7 @@
 #' @param id.lengths A numeric vector used to separate locations in
 #' \code{x} and \code{y} into multiple polygons. Specifies consecutive
 #' blocks of locations which make up separate polygons.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -138,7 +138,7 @@ plotPolygon <- function(x, y, default.units = "inches",
     # CATCH ERRORS
     # =========================================================================
 
-    check_page(error = "Cannot plot polygon without a plotgardener page.")
+    check_page(error = "Cannot plot polygon without a plotlandscaper page.")
     if (is.null(polygon$x)) {
         stop("argument \"x\" is missing, with no default.",
             call. = FALSE

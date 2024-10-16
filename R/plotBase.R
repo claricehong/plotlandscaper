@@ -1,4 +1,4 @@
-## Plot a base R plot in a plotgardener layout
+## Plot a base R plot in a plotlandscaper layout
 #
 # @param plot Plot formula of base R plotting functions.
 # @param x A numeric or unit object specifying plot x-location.
@@ -6,7 +6,7 @@
 # combined with a numeric value specifying plot y-location.
 # The character value will
 # place the plot y relative to the bottom of the most recently plotted
-# plot according to the units of the plotgardener page.
+# plot according to the units of the plotlandscaper page.
 # @param width A numeric or unit object specifying plot width.
 # @param height A numeric or unit object specifying plot height.
 # @param just Justification of base plot relative to its (x, y) location.
@@ -20,7 +20,7 @@
 # as numerics. Default value is \code{default.units = "inches"}.
 # @param bg Character value indicating background color.
 # Default value is \code{bg = NA}.
-# @param params An optional \link[plotgardener]{pgParams} object
+# @param params An optional \link[plotlandscaper]{pgParams} object
 # containing relevant function parameters.
 #
 # @return Returns a \code{base} object containing
@@ -100,7 +100,7 @@ plotBase <- function(plot, x, y, width, height, just = c("left", "top"),
         )
     }
 
-    check_page(error = "Must have a plotgardener page before
+    check_page(error = "Must have a plotlandscaper page before
                 adding a base R plot.")
 
     # =========================================================================

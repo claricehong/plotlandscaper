@@ -18,7 +18,7 @@ test_that("pgParams parameter parsing", {
     testFun <- function(data, chrom, chromstart = NULL, chromend = NULL,
                         assembly = "hg19", 
                         params = NULL, ...){
-        newObject <- plotgardener:::parseParams(params = params,
+        newObject <- plotlandscaper:::parseParams(params = params,
                                             defaultArgs = formals(eval(match.call()[[1]])),
                                             declaredArgs = lapply(match.call()[-1], eval.parent,
                                                                   n = 2),

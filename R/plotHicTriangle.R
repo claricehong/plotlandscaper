@@ -50,7 +50,7 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param palette A function describing the color palette to use for
 #' representing scale of interaction scores. Default value is
@@ -67,7 +67,7 @@
 #' combined with a numeric value specifying triangle Hi-C plot y-location.
 #' The character value will
 #' place the triangle Hi-C plot y relative to the bottom of the most
-#' recently plotted plot according to the units of the plotgardener page.
+#' recently plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying the bottom
 #' width of the Hi-C plot triangle.
 #' @param height A numeric or unit object specifying the height of
@@ -84,7 +84,7 @@
 #' numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should
 #' be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param quiet A logical indicating whether or not to print messages.
 #'
@@ -129,7 +129,7 @@
 #' In this orientation, the x-axis represents the genomic coordinates and
 #' the y-axis corresponds to distance in Hi-C bins.
 #' 
-#' A triangle Hi-C plot can be placed on a plotgardener coordinate page
+#' A triangle Hi-C plot can be placed on a plotlandscaper coordinate page
 #' by providing plot placement parameters:
 #' \preformatted{
 #' plotHicTriangle(data, chrom,
@@ -147,7 +147,7 @@
 #' If \code{height} is \eqn{<} \eqn{0.5 * width}, the top of the triangle
 #' will be cropped to the given \code{height}.
 #'
-#' @seealso \link[plotgardener]{readHic}, \link[plotgardener]{readCool}
+#' @seealso \link[plotlandscaper]{readHic}, \link[plotlandscaper]{readCool}
 #'
 #' @export
 plotHicTriangle <- function(data, resolution = "auto", zrange = NULL,

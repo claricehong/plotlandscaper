@@ -46,7 +46,7 @@
 #' @param chromstart Integer start position on chromosome to be plotted.
 #' @param chromend Integer end position on chromosome to be plotted.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param linecolor A character value or vector of character values specifying 
 #' the line color(s) outlining the signal tracks.
@@ -65,7 +65,7 @@
 #' to signal tracks. If \code{scale = TRUE}, the labels will be drawn in the 
 #' top right of the signal tracks. Otherwise, the label will be drawn in the 
 #' top left of the plot. For more customizable labels, 
-#' use \link[plotgardener]{plotText}.
+#' use \link[plotlandscaper]{plotText}.
 #' @param bg Character value indicating background color.
 #' Default value is \code{bg = NA}.
 #' @param baseline Logical value indicating whether to include a
@@ -88,7 +88,7 @@
 #' combined with a numeric value specifying overall multisignal plot y-location.
 #' The character value will
 #' place the multisignal plot y relative to the bottom of the most recently
-#' plotted plot according to the units of the plotgardener page.
+#' plotted plot according to the units of the plotlandscaper page.
 #' @param width A numeric or unit object specifying overall multisignal plot 
 #' width.
 #' @param height A numeric or unit object specifying overall multisignal plot 
@@ -106,7 +106,7 @@
 #' Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output should be
 #' produced. Default value \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -455,7 +455,7 @@ plotMultiSignal<- function(data,
 #' @param chromstart Integer start position on chromosome to get data range.
 #' @param chromend Integer end position on chromosome to get data range.
 #' @param assembly Default genome assembly as a string or a
-#' \link[plotgardener]{assembly} object.
+#' \link[plotlandscaper]{assembly} object.
 #' Default value is \code{assembly = "hg38"}.
 #' @param negData A logical value indicating whether any of the data has both
 #' positive and negative scores and the signal range should be adjusted

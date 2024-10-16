@@ -19,11 +19,11 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 library(plotgardenerData)
 ```
 
-`plotgardener` makes it easy to create reproducible, publication-quality figures 
+`plotlandscaper` makes it easy to create reproducible, publication-quality figures 
 from multi-omic data. Since each plot can be placed in *exactly* the desired 
 location, users can stack multiple types of genomic data so that their axes 
 and data are correctly aligned. In this section we will show some examples of 
@@ -43,7 +43,7 @@ data("IMR90_DNAloops_pairs")
 data("IMR90_ChIP_H3K27ac_signal")
 data("hg19_insulin_GWAS")
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(
     width = 3, height = 5, default.units = "inches",
     showGuides = FALSE, xgrid = 0, ygrid = 0
@@ -109,7 +109,7 @@ plotGenomeLabel(
 ## Using the `pgParams` object
 
 The `pgParams()` function creates a `pgParams` object that can contain any 
-argument from `plotgardener` functions.  
+argument from `plotlandscaper` functions.  
 
 We can recreate and simplify the multi-omic plot above by saving the genomic 
 region, left-based x-coordinate, and width into a `pgParams` object:
@@ -135,7 +135,7 @@ data("IMR90_DNAloops_pairs")
 data("IMR90_ChIP_H3K27ac_signal")
 data("hg19_insulin_GWAS")
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(
     width = 3, height = 5, default.units = "inches",
     showGuides = FALSE, xgrid = 0, ygrid = 0
@@ -207,7 +207,7 @@ data("IMR90_DNAloops_pairs")
 data("IMR90_ChIP_H3K27ac_signal")
 data("hg19_insulin_GWAS")
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(
     width = 3, height = 5, default.units = "inches",
     showGuides = FALSE, xgrid = 0, ygrid = 0
@@ -277,7 +277,7 @@ data("IMR90_DNAloops_pairs")
 data("IMR90_ChIP_H3K27ac_signal")
 data("hg19_insulin_GWAS")
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(
     width = 3, height = 5, default.units = "inches",
     showGuides = FALSE, xgrid = 0, ygrid = 0
@@ -333,7 +333,7 @@ plotGenomeLabel(
 Since multi-omic plots often involve vertical stacking, the placement of 
 multi-omic plots can be facilitated with the "below" y-coordinate. Rather than
 providing a `numeric` value or `unit` object to the `y` parameter in plotting 
-functions, we can place a plot below the previously drawn `plotgardener` plot with 
+functions, we can place a plot below the previously drawn `plotlandscaper` plot with 
 a `character` value consisting of the distance below the last plot, in page 
 units, and "b". For example, on a page made in inches, `y = "0.1b"` will place 
 a plot 0.1 inches below the last drawn plot.
@@ -356,7 +356,7 @@ params <- pgParams(
     width = 2, length = 2, default.units = "inches"
 )
 
-## Create a plotgardener page
+## Create a plotlandscaper page
 pageCreate(
     width = 3, height = 5, default.units = "inches",
     showGuides = FALSE, xgrid = 0, ygrid = 0
@@ -416,9 +416,9 @@ plotGenomeLabel(
 
 In many multi-omic visualizations, multiple signal tracks are often aligned 
 and stacked to compare different kinds of signal data and/or signals
-from different samples. **`plotgardener` does not normalize signal data** 
+from different samples. **`plotlandscaper` does not normalize signal data** 
 **based on variables like read depth**, but it is possible to 
-**scale** `plotgardener` signal plots to the same y-axis.
+**scale** `plotlandscaper` signal plots to the same y-axis.
 
 To determine the appropriate y-axis range, we first must get the
 maximum signal score from all of our datasets to be compared:

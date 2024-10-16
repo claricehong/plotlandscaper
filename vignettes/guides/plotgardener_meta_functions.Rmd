@@ -1,9 +1,9 @@
 ---
-title: "plotgardener Meta Functions"
+title: "plotlandscaper Meta Functions"
 output:
     rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{plotgardener Meta Functions}
+    %\VignetteIndexEntry{plotlandscaper Meta Functions}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
@@ -19,18 +19,18 @@ knitr::opts_chunk$set(
     message = FALSE
 )
 library(grid)
-library(plotgardener)
+library(plotlandscaper)
 library(plotgardenerData)
 ```
 
-`plotgardener` meta functions enhance the `plotgardener` user experience by providing 
-simple methods to display various genomic assembly data, simplify `plotgardener`
-code, and construct `plotgardener` objects. Functions in this category include:
+`plotlandscaper` meta functions enhance the `plotlandscaper` user experience by providing 
+simple methods to display various genomic assembly data, simplify `plotlandscaper`
+code, and construct `plotlandscaper` objects. Functions in this category include:
 
 - **`genomes`** and **`defaultPackages`**
 
 Simple functions to display the strings of available default genomic builds and 
-the genomic annotation packages associated with these builds in `plotgardener` functions.
+the genomic annotation packages associated with these builds in `plotlandscaper` functions.
 
 ```{r}
 genomes()
@@ -42,12 +42,12 @@ defaultPackages("hg19")
 - **`assembly`**
 
 A constructor to make custom combinations of genomic annotation packages for 
-use in `plotgardener` functions through the `assembly` parameter.
+use in `plotlandscaper` functions through the `assembly` parameter.
 
 - **`pgParams`**
 
 A constructor to capture sets of parameters to be shared across multiple
-function calls. `pgParams` objects can hold any argument from any `plotgardener`
+function calls. `pgParams` objects can hold any argument from any `plotlandscaper`
 function. Most often, `pgParams` objects are used to store a common genomic
 region and common x-placement coordinate information. For a detailed example 
 using the `pgParams` object, refer to the vignette 
@@ -55,12 +55,12 @@ using the `pgParams` object, refer to the vignette
 
 - **`colorby`** and **`mapColors`**
 
-The `colorby` constructor allows us to color the data elements in `plotgardener` 
+The `colorby` constructor allows us to color the data elements in `plotlandscaper` 
 plots by various data features. These features can be a numerical range, like 
 some kind of score value, or categorical values, like positive or negative 
 strand. The `colorby` object is constructed by specifying the name of the data 
 column to color by, an optional color palette function, and an optional range 
-for numerical values. If not specified, `plotgardener` will use the `RColorBrewer`
+for numerical values. If not specified, `plotlandscaper` will use the `RColorBrewer`
 "YlGnBl" palette for mapping numerical data and the "Pairs" palette for 
 qualitative data.
 
@@ -228,7 +228,7 @@ annoHeatmapLegend(
 ```
 
 If users wish to map values to a color palette before passing them into
-a `plotgardener` function, they can use `mapColors`:
+a `plotlandscaper` function, they can use `mapColors`:
 ```{r echo=TRUE, eval=FALSE}
 colors <- mapColors(vector = IMR90_DNAloops_pairs$length,
              palette = colorRampPalette(c("dodgerblue2", "firebrick2")))

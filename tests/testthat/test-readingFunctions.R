@@ -9,14 +9,14 @@ test_that("read_rangeData", {
     expectedgr <- as.data.frame(gr)
     colnames(expectedgr)[1:3] <- c("chrom", "start", "end")
     
-    expect_equal(plotgardener:::read_rangeData(data = gr,
+    expect_equal(plotlandscaper:::read_rangeData(data = gr,
                               assembly = "hg19"),
                  expectedgr)
     
     ## Errors for invalid column types
     expectedgr$start <- as.character(expectedgr$start)
     expectedgr$end <- as.character(expectedgr$end)
-    expect_error(plotgardener:::read_rangeData(data = expectedgr,
+    expect_error(plotlandscaper:::read_rangeData(data = expectedgr,
                               assembly = "hg19"))
     
 })
@@ -36,7 +36,7 @@ test_that("read_pairedData", {
     
     colnames(expectedgi)[1:6] <- c("chrom1", "start1", "end1",
                                    "chrom2", "start2", "end2")
-    expect_equal(plotgardener:::read_pairedData(data = gi,
+    expect_equal(plotlandscaper:::read_pairedData(data = gi,
                                            assembly = "hg19"),
                  expectedgi)
     
@@ -46,13 +46,13 @@ test_that("read_pairedData", {
     region.3 <- all.regions[index.3]
     region.4 <- all.regions[index.4]
     gi2 <- GInteractions(region.3, region.4)
-    expect_warning(plotgardener:::read_pairedData(data = gi2,
+    expect_warning(plotlandscaper:::read_pairedData(data = gi2,
                                                   assembly = "hg19"))
     
     ## Errors for invalid column types
     expectedgi$start1 <- as.character(expectedgi$start1)
     expectedgi$end2 <- as.character(expectedgi$end2)
-    expect_error(plotgardener:::read_pairedData(data = expectedgi,
+    expect_error(plotlandscaper:::read_pairedData(data = expectedgi,
                                             assembly = "hg19"))
     
 })
@@ -61,8 +61,8 @@ test_that("checkAssemblyMatch", {
     library("TxDb.Hsapiens.UCSC.hg19.knownGene")
     ## warning for invalid matching
     tx_db <- TxDb.Hsapiens.UCSC.hg19.knownGene
-    expect_warning(plotgardener:::checkAssemblyMatch(data = tx_db,
-            assembly = plotgardener:::parseAssembly("hg38")))
+    expect_warning(plotlandscaper:::checkAssemblyMatch(data = tx_db,
+            assembly = plotlandscaper:::parseAssembly("hg38")))
 })
 
 test_that("readHic", {

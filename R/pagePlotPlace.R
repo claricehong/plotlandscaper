@@ -13,13 +13,13 @@
 #' )
 #'
 #' @param plot Plot object to be placed, defined by the
-#' output of a plotgardener plotting function.
+#' output of a plotlandscaper plotting function.
 #' @param x A numeric or unit object specifying plot x-location.
 #' @param y A numeric, unit object, or character containing a "b" combined
 #' with a numeric value specifying plot y-location.
 #' The character value will place the plot y relative to the bottom
 #' of the most recently plotted plot according to the units
-#' of the plotgardener page.
+#' of the plotlandscaper page.
 #' @param width A numeric or unit object specifying plot width.
 #' @param height A numeric or unit object specifying plot height.
 #' @param just Justification of plot relative to its (x, y) location.
@@ -33,7 +33,7 @@
 #' given as numerics. Default value is \code{default.units = "inches"}.
 #' @param draw A logical value indicating whether graphics output
 #' should be produced. Default value is \code{draw = TRUE}.
-#' @param params An optional \link[plotgardener]{pgParams} object
+#' @param params An optional \link[plotlandscaper]{pgParams} object
 #' containing relevant function parameters.
 #'
 #' @return Function will update dimensions of an input plot and

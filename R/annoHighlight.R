@@ -31,7 +31,7 @@
 #' with a numeric value specifying square highlight box y-location.
 #' The character value will place the highlight box y relative to the
 #' bottom of the most recently plotted plot according to the
-#' units of the \code{plotgardener} page.
+#' units of the \code{plotlandscaper} page.
 #' @param height A numeric or unit object specifying highlight box height.
 #' @param just Justification of highlight box relative to its (x, y)
 #' location. If there are two values, the first value specifies horizontal
@@ -42,7 +42,7 @@
 #' @param default.units A string indicating the default units to use if
 #' \code{y} or \code{height} are only given as numerics or numeric vectors.
 #' Default value is \code{default.units = "inches"}.
-#' @param params An optional \link[plotgardener]{pgParams} object containing
+#' @param params An optional \link[plotlandscaper]{pgParams} object containing
 #' relevant function parameters.
 #' @param ... Additional grid graphical parameters. See \link[grid]{gpar}.
 #'
@@ -210,7 +210,7 @@ annoHighlight <- function(plot, chrom, chromstart = NULL, chromend = NULL,
     # =========================================================================
 
     check_page(error = "Cannot add highlight annotation
-                without a `plotgardener` page.")
+                without a `plotlandscaper` page.")
     if (is.null(highlightInternal$plot)) {
         stop("argument \"plot\" is missing, with no default.", call. = FALSE)
     }
