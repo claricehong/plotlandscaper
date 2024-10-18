@@ -647,8 +647,7 @@ plotChromGenomeLabel <- function(genomeLabel,
                 assign("genomeLabel_grobs",
                     setChildren(get("genomeLabel_grobs", envir = pgEnv),
                                     children = gList(
-                                                line, chromLab, startLab,
-                                                endLab, tickGrobs
+                                                line, startLab, endLab, chromLab, tickGrobs
                                         )
                         ),
                         envir = pgEnv
@@ -745,6 +744,7 @@ plotChromGenomeLabel <- function(genomeLabel,
                         x = unit(0.5, "npc"), y = yLabel,
                         gp = object$gp, just = c("center", "bottom")
                     )
+                    
                 } else {
                     y0_coord <- height
                     y1_coords <- rep(height - tick_height, length(ticks))
@@ -783,15 +783,41 @@ plotChromGenomeLabel <- function(genomeLabel,
                     )
                 }
                 
+                # lab_text = lapply(ticks, comma_labels,
+                #                   object = genomeLabel,
+                #                   commas = genomeLabelInternal$commas,
+                #                   fact = fact
+                # )
+                
+                labGrobs = gridtext::richtext_grob(
+                    text = lapply(ticks, as.character),
+                    x = x_coords, y = unit(tgH + 0.35 * tgH, "native"),
+                    default.units = "native",
+                    # setting object$gp does not work
+                    gp = gpar(
+                        fontsize = object$gp$fontsize,
+                        col =  object$gp$linecolor,
+                        fontcolor =  object$gp$fontcolor,
+                        fontfamily = object$gp$fontfamily
+                    )
+                )
+                
                 assign("genomeLabel_grobs",
                     setChildren(get("genomeLabel_grobs", envir = pgEnv),
                                 children = gList(
-                                            line, chromLab, startLab,
-                                            endLab, tickGrobs
+                                            line, tickGrobs, labGrobs
                                         )
                         ),
                     envir = pgEnv
                 )
+                # 
+                # assign("genomeLabel_grobs",
+                #        addGrob(
+                #            gTree = get("genomeLabel_grobs", envir = pgEnv),
+                #            child = labGrobs
+                #        ),
+                #        envir = pgEnv
+                # )
             } else {
                 if (yaxis == TRUE) {
                     yLabel <- unit(margin, "native")
