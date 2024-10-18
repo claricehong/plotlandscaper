@@ -43,7 +43,7 @@
 #' along the genome label. Default value is \code{scale = "bp"}. Options are:
 #' \itemize{
 #' \item{\code{"bp"}: }{base pairs.}
-#' \item{\code{"Kb"}: }{kilobase pairs. 1 kilobase pair is equal to
+#' \item{\code{"kb"}: }{kilobase pairs. 1 kilobase pair is equal to
 #' 1000 base pairs.}
 #' \item{\code{"Mb"}: }{megabase pairs. 1 megabase pair is equal to
 #' 1000000 base pairs.}
@@ -126,7 +126,7 @@
 #'     chrom = "chr8",
 #'     chromstart = 1000000, chromend = 2000000,
 #'     assembly = "hg19",
-#'     scale = "Kb",
+#'     scale = "kb",
 #'     x = 0.5, y = 1.5, length = 4, just = c("left", "top"),
 #'     default.units = "inches"
 #' )
@@ -175,8 +175,8 @@ plotGenomeLabel <- function(chrom, chromstart = NULL, chromend = NULL,
     errorcheck_plotGenomeLabel <- function(scale, ticks, object, axis) {
 
         ## Check that scale is an appropriate value
-        if (!scale %in% c("bp", "Kb", "Mb")) {
-            stop("Invalid \'scale\'. Options are \'bp\', \'Kb\', or \'Mb\'.",
+        if (!scale %in% c("bp", "kb", "Mb")) {
+            stop("Invalid \'scale\'. Options are \'bp\', \'kb\', or \'Mb\'.",
                 call. = FALSE
             )
         }
@@ -460,6 +460,22 @@ plotChromGenomeLabel <- function(genomeLabel,
         }
         
         return(list(chromstartlabel, chromendlabel))
+    }
+    
+    ## Define function to convert genomic coordinates 
+    convert_genomic_coord = function(position, unit = "Mb") {
+        
+        if (unit == "kb") {
+            converted = position/1000
+        } else if (unit == "Mb") {
+            converted = position/1000000
+        } else if (unit == "bp") {
+            converted = position
+        } else {
+            stop("Invalid unit. Valid options are bp, kb or Mb")
+        }
+        
+        return(paste0(converted, unit))
     }
     
     ## Define a function that makes the label viewport
@@ -790,8 +806,8 @@ plotChromGenomeLabel <- function(genomeLabel,
                 # )
                 
                 labGrobs = gridtext::richtext_grob(
-                    text = lapply(ticks, as.character),
-                    x = x_coords, y = unit(tgH + 0.35 * tgH, "native"),
+                    text = lapply(ticks, convert_genomic_coord, unit = scale),
+                    x = x_coords, y = unit(tgH + 0.1 * tgH, "native"),
                     default.units = "native",
                     # setting object$gp does not work
                     gp = gpar(
@@ -810,14 +826,7 @@ plotChromGenomeLabel <- function(genomeLabel,
                         ),
                     envir = pgEnv
                 )
-                # 
-                # assign("genomeLabel_grobs",
-                #        addGrob(
-                #            gTree = get("genomeLabel_grobs", envir = pgEnv),
-                #            child = labGrobs
-                #        ),
-                #        envir = pgEnv
-                # )
+
             } else {
                 if (yaxis == TRUE) {
                     yLabel <- unit(margin, "native")
@@ -988,7 +997,7 @@ plotChromGenomeLabel <- function(genomeLabel,
     if (genomeLabelInternal$scale == "Mb") {
         fact <- 1000000
     }
-    if (genomeLabelInternal$scale == "Kb") {
+    if (genomeLabelInternal$scale == "kb") {
         fact <- 1000
     }
     
