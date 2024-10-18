@@ -180,13 +180,14 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
                             assembly = "hg38",
                             palette = colorRampPalette(brewer.pal(
                                 n = 9, "YlGnBu"
-                            )),
+                            )), 
                             colorTrans = "linear",
                             half = "both", yaxisDir = "increase", bg = NA, 
                             x = NULL, y = NULL, width = NULL,
                             height = NULL, just = c("left", "top"),
                             default.units = "inches",
-                            draw = TRUE, params = NULL, quiet = FALSE) {
+                            draw = TRUE, params = NULL, quiet = FALSE,
+                            border = TRUE, border_width = 2) {
     # =========================================================================
     # FUNCTIONS
     # =========================================================================
@@ -405,7 +406,7 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
             hic_triangle <- polygonGrob(
                 x = c(xleft, xleft, xright),
                 y = c(ybottom, ytop, ytop),
-                gp = gpar(col = NA, fill = col),
+                gp = gpar(col = 'black', fill = col),
                 default.units = "native"
             )
         } else if (half == "bottom") {
@@ -514,6 +515,13 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
         }
         
     }
+    
+    ## Set gp
+    # hicInternal$gp <- gpar(col = 'black', fill = NA)
+    # hicInternal$gp <- setGP(
+    #     gpList = hicInternal$gp,
+    #     params = hicInternal,
+    # )
     
     # =========================================================================
     # GENOMIC SCALE
@@ -691,6 +699,24 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
             name = vp_name
         )
     }
+    
+    # =========================================================================
+    # ADD BORDER
+    # =========================================================================
+    
+    if (hicInternal$border == TRUE) {
+        # hicInternal$gp$fill = NA
+        borderGrob <- rectGrob(
+            # y = unit(1 - (hH + (0.5 * dH)), "npc"),
+            y = unit(1, "npc"),
+            just = "top",
+            width = page_coords$width,
+            height = page_coords$height,
+            # height = unit(new_height, "npc"),
+            gp = gpar(col = 'black', fill = NA, lwd = hicInternal$border_width)
+        )
+    }
+
 
     # =========================================================================
     # INITIALIZE GTREE FOR GROBS WITH BACKGROUND
@@ -754,6 +780,16 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
             }
 
         }
+    }
+    
+    if (hicInternal$border == TRUE) {
+        assign("hic_grobs",
+               addGrob(
+                   gTree = get("hic_grobs", envir = pgEnv),
+                   child = borderGrob
+               ),
+               envir = pgEnv
+        )
     }
 
 

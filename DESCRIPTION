@@ -39,7 +39,8 @@ Imports:
     strawr,
     tools,
     utils,
-    withr
+    withr,
+    gridtext
 biocViews: 
     Visualization, 
     GenomeAnnotation, 

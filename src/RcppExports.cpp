@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // checkRow
 NumericMatrix checkRow(NumericMatrix x, int maxRows, int rowCol, double wig);
-RcppExport SEXP _plotgardener_checkRow(SEXP xSEXP, SEXP maxRowsSEXP, SEXP rowColSEXP, SEXP wigSEXP) {
+RcppExport SEXP _plotlandscaper_checkRow(SEXP xSEXP, SEXP maxRowsSEXP, SEXP rowColSEXP, SEXP wigSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -26,7 +26,7 @@ END_RCPP
 }
 // rebinBigwig
 NumericVector rebinBigwig(DataFrame bigwig, DataFrame bins);
-RcppExport SEXP _plotgardener_rebinBigwig(SEXP bigwigSEXP, SEXP binsSEXP) {
+RcppExport SEXP _plotlandscaper_rebinBigwig(SEXP bigwigSEXP, SEXP binsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -38,12 +38,12 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_plotgardener_checkRow", (DL_FUNC) &_plotgardener_checkRow, 4},
-    {"_plotgardener_rebinBigwig", (DL_FUNC) &_plotgardener_rebinBigwig, 2},
+    {"_plotlandscaper_checkRow", (DL_FUNC) &_plotlandscaper_checkRow, 4},
+    {"_plotlandscaper_rebinBigwig", (DL_FUNC) &_plotlandscaper_rebinBigwig, 2},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_plotgardener(DllInfo *dll) {
+RcppExport void R_init_plotlandscaper(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

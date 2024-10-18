@@ -9,7 +9,7 @@
 #'     digits = 1,
 #'     ticks = FALSE,
 #'     breaks = NULL,
-#'     border = FALSE,
+#'     border = TRUE,
 #'     x,
 #'     y,
 #'     width,
@@ -102,12 +102,13 @@
 #' ## Hide page guides
 #' pageGuideHide()
 #' @export
-require(gridtext)
+library(gridtext)
+
 annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
                                 fontcolor = "dark grey", scientific = FALSE,
                                 digits = 1, ticks = FALSE, breaks = NULL,
-                                border = FALSE, x, y, width, height,
-                                just = c("left", "top"),
+                                border = TRUE, x, y, width, height,
+                                just = c("left", "top"), border_width = 1,
                                 default.units = "inches", params = NULL, ...) {
 
     # =========================================================================
@@ -418,14 +419,14 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
                 gp = gpar(col = heatmapLegendInternal$gp$linecol),
                 vp = tickVP
             )
-            ticktextGrobs = richtext_grob(
+            ticktextGrobs = gridtext::richtext_grob(
                 text = lapply(heatmapLegendInternal$breaks, as.character), 
                 x = 1.3, y = breaks,
                 hjust = 0,
                 default.units = "native",
                 vp = tickVP,
                 gp = gpar(col = heatmapLegendInternal$gp$linecol,
-                          fontsize = 10)
+                          fontsize = heatmapLegendInternal$fontsize)
             )
         }
 
@@ -433,6 +434,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
             heatmapLegendInternal$gp$fill <- NA
             heatmapLegendInternal$gp$col <-
                 heatmapLegendInternal$gp$linecol
+            heatmapLegendInternal$gp$lwd <- heatmapLegendInternal$border_width
             borderGrob <- rectGrob(
                 # y = unit(1 - (hH + (0.5 * dH)), "npc"),
                 y = unit(1, "npc"),
