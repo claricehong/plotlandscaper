@@ -177,7 +177,7 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
                         spaceHeight = 0.3, limitLabel = TRUE,
                         strandSplit = FALSE, bg = NA,
                         baseline = FALSE, baseline.color = "grey",
-                        baseline.lwd = 1,
+                        baseline.lwd = 1, axis = 'x',
                         x = NULL, y = NULL, width = NULL, height = NULL,
                         just = c("left", "top"), default.units = "inches",
                         draw = TRUE, params = NULL, ...) {
@@ -376,6 +376,7 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
 
     ## Add width column
     bed$width <- bed[, "end"] - bed[, "start"]
+    
     # =========================================================================
     # SEPARATE DATA INTO STRANDS
     # =========================================================================
@@ -418,7 +419,7 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
         if (pileInternal$draw == TRUE) {
             grid.newpage()
         }
-    } else {
+    } else if (pileInternal$axis == 'x') {
         
         ## Get viewport name
         currentViewports <- current_viewports()
@@ -452,6 +453,43 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
             clip = "on",
             xscale = pileInternal$xscale,
             yscale = yscale,
+            just = pileInternal$just,
+            name = vp_name
+        )
+    } else if (pileInternal$axis == 'y'){
+        
+        ## Get viewport name
+        currentViewports <- current_viewports()
+        vp_name <- paste0(
+            "ranges",
+            length(grep(
+                pattern = "ranges",
+                x = currentViewports
+            )) + 1
+        )
+        
+        addViewport(vp_name)
+        
+        ## Convert coordinates into same units as page
+        page_coords <- convert_page(object = pileupPlot)
+        
+        yscale <- strand_scale(
+            strandSplit = pileInternal$strandSplit,
+            height = convertHeight(page_coords$width,
+                                   unitTo = get("page_units",
+                                                envir = pgEnv
+                                   ),
+                                   valueOnly = TRUE
+            )
+        )
+        
+        ## Make viewport
+        vp <- viewport(
+            height = page_coords$height, width = page_coords$width,
+            x = page_coords$x, y = page_coords$y,
+            clip = "on",
+            xscale = yscale,
+            yscale = rev(pileInternal$xscale),
             just = pileInternal$just,
             name = vp_name
         )
@@ -499,6 +537,7 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
 
     if (pileInternal$collapse == FALSE) {
         
+        
         ## Calculate number of element rows that will fit
         maxRows <- floor((as.numeric(vp$height) + spaceHeight) /
             (boxHeight + spaceHeight))
@@ -506,7 +545,8 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
             pileInternal$spaceWidth
 
         if (pileInternal$strandSplit == FALSE) {
-
+            if (pileInternal$axis == 'x'){
+                
             ## Order data
             bed <- orderData(data = bed, order = pileInternal$order)
             
@@ -521,7 +561,25 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
             
             ## Calculate y-coordinates
             rowData$y <- rowData$row * (boxHeight + spaceHeight)
-
+            
+        } else if (pileInternal$axis == 'y'){
+            
+            ## Order data
+            bed <- orderData(data = bed, order = pileInternal$order)
+            
+            ## Assign rows
+            rowData <- assignRows(data = bed[,c("start", "end")], 
+                                  maxRows = maxRows,
+                                  wiggle = wiggle, rowCol = 2,
+                                  limitLabel = pileInternal$limitLabel,
+                                  gTree = "pileup_grobs",
+                                  extraData = bed[,c("color", "linecolor")],
+                                  colNames = c("color", "linecolor"))
+            
+            ## Calculate x-coordinates
+            rowData$x <- rowData$row * (boxHeight + spaceHeight)
+        }
+            
         } else {
             
             ## Order data
@@ -586,34 +644,67 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
     # =====================================================================
     
     if (nrow(rowData) > 0) {
-        
-        rowData$width <- rowData[,"end"] - rowData[,"start"]
 
-        alpha <- 1
-        if ("alpha" %in% names(pileInternal$gp)) {
-            alpha <- pileInternal$gp$alpha
-        }
-
-        bedRects <- rectGrob(
-            x = rowData$start,
-            y = rowData$y,
-            width = rowData$width,
-            height = boxHeight,
-            just = c("left", "bottom"),
-            default.units = "native",
-            gp = gpar(
-                fill = rowData$color,
-                col = rowData$linecolor,
-                alpha = alpha
+        if (pileInternal$axis == 'x'){ 
+            rowData$width <- rowData[,"end"] - rowData[,"start"]
+    
+            alpha <- 1
+            if ("alpha" %in% names(pileInternal$gp)) {
+                alpha <- pileInternal$gp$alpha
+            }
+            
+            bedRects <- rectGrob(
+                x = rowData$start,
+                y = rowData$y,
+                width = rowData$width,
+                height = boxHeight,
+                just = c("left", "bottom"),
+                default.units = "native",
+                gp = gpar(
+                    fill = rowData$color,
+                    col = rowData$linecolor,
+                    alpha = alpha
+                )
             )
-        )
-        assign("pileup_grobs",
-            addGrob(
-                gTree = get("pileup_grobs", envir = pgEnv),
-                child = bedRects
-            ),
-            envir = pgEnv
-        )
+            assign("pileup_grobs",
+                addGrob(
+                    gTree = get("pileup_grobs", envir = pgEnv),
+                    child = bedRects
+                ),
+                envir = pgEnv
+            )
+        } else if (pileInternal$axis == 'y'){
+        
+            rowData$width <- rowData[,"end"] - rowData[,"start"]
+ 
+            alpha <- 1
+            if ("alpha" %in% names(pileInternal$gp)) {
+                alpha <- pileInternal$gp$alpha
+            }
+            
+            bedRects <- rectGrob(
+                x = rowData$x,
+                y = rowData$start,
+                width = boxHeight,
+                height = rowData$width,
+                default.units = "native",
+                just = c("left", "bottom"),
+                gp = gpar(
+                    fill = rowData$color,
+                    col = rowData$linecolor,
+                    alpha = alpha
+                )
+            )
+            
+            assign("pileup_grobs",
+                   addGrob(
+                       gTree = get("pileup_grobs", envir = pgEnv),
+                       child = bedRects
+                   ),
+                   envir = pgEnv
+            )
+            
+        }
 
         if ((pileInternal$strandSplit == TRUE |
             pileInternal$baseline == TRUE) &

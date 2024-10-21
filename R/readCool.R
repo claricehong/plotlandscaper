@@ -699,21 +699,23 @@ readCool <- function(file, chrom, chromstart = NULL, chromend = NULL,
     
     ## Multiply by normalization factors, if applicable
     if (rcool$norm == "BALANCE"){
-        bin1norm <- h5read(rcool$file, 
+        bin1norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/weight"),
                            list(as.numeric(bin1ids+1)))
-        bin2norm <- h5read(rcool$file, 
+        bin2norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/weight"),
                            list(as.numeric(bin2ids+1)))
-        counts <- counts / (bin1norm * bin2norm)
+        # counts <- counts / (bin1norm * bin2norm)
+        count = counts * bin1norm * bin2norm
     } else if (rcool$norm != "NONE"){
-        bin1norm <- h5read(rcool$file, 
+        bin1norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/", rcool$norm),
                            list(as.numeric(bin1ids+1)))
-        bin2norm <- h5read(rcool$file, 
+        bin2norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/", rcool$norm),
                            list(as.numeric(bin2ids+1)))
-        counts <- counts / (bin1norm * bin2norm)
+        # counts <- counts / (bin1norm * bin2norm)
+        count = counts * bin1norm * bin2norm
     }
     
     ## Get genomic locations for each bin id 
