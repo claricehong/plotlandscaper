@@ -807,7 +807,7 @@ plotChromGenomeLabel <- function(genomeLabel,
                 
                 labGrobs = gridtext::richtext_grob(
                     text = lapply(ticks, convert_genomic_coord, unit = scale),
-                    x = x_coords, y = unit(tgH + 0.1 * tgH, "native"),
+                    x = x_coords, y = unit(tgH + 0.05 * tgH, "native"),
                     default.units = "native",
                     # setting object$gp does not work
                     gp = gpar(

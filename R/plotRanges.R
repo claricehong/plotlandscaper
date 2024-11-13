@@ -537,7 +537,6 @@ plotRanges <- function(data, chrom, chromstart = NULL, chromend = NULL,
 
     if (pileInternal$collapse == FALSE) {
         
-        
         ## Calculate number of element rows that will fit
         maxRows <- floor((as.numeric(vp$height) + spaceHeight) /
             (boxHeight + spaceHeight))

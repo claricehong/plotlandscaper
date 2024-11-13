@@ -118,6 +118,7 @@
 annoSegments <- function(x0, y0, x1, y1, plot, default.units = "native",
                             linecolor = "black", lwd = 1, lty = 1,
                             lineend = "butt", linejoin = "mitre",
+                            coords = FALSE, 
                             arrow = NULL, params = NULL, ...) {
 
     # =========================================================================
@@ -182,6 +183,42 @@ annoSegments <- function(x0, y0, x1, y1, plot, default.units = "native",
     # =========================================================================
     # DEFINE PARAMETERS
     # =========================================================================
+    
+    convert_page <- function(object) {
+        
+        ## Get page_height and its units from pgEnv
+        page_height <- get("page_height", envir = pgEnv)
+        page_units <- get("page_units", envir = pgEnv)
+        
+        ## Convert x and y coordinates and height and width to same page_units
+        old_x0 <- object$x0
+        # old_y <- object$y
+        old_height <- object$height
+        old_width <- object$width
+        new_x0 <- convertX(old_x0, unitTo = page_units)
+        # new_y <- convertY(unit(page_height,
+        #                        units = page_units
+        # ) - convertY(old_y,
+        #              unitTo = page_units
+        # ),
+        # unitTo = page_units
+        # )
+        new_height <- convertHeight(old_height, unitTo = page_units)
+        new_width <- convertWidth(old_width, unitTo = page_units)
+        
+        object$x0 <- new_x0
+        object$x1 = new_x1
+        # object$y <- new_y
+        object$height <- new_height
+        object$width <- new_width
+        
+        
+        return(object)
+    }
+    
+    if (segmentsInternal$coords == TRUE){
+        segments = convert_page(segments)
+    }
 
     ## Get page_height and its units from pgEnv through pageCreate
     page_height <- get("page_height", envir = pgEnv)

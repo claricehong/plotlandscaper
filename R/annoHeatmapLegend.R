@@ -104,7 +104,7 @@
 #' @export
 library(gridtext)
 
-annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 8,
+annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                                 fontcolor = "dark grey", scientific = FALSE,
                                 digits = 1, ticks = FALSE, breaks = NULL,
                                 border = TRUE, x, y, width, height,
