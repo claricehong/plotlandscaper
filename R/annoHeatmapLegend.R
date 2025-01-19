@@ -109,6 +109,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                                 digits = 1, ticks = FALSE, breaks = NULL,
                                 border = TRUE, x, y, width, height,
                                 just = c("left", "top"), border_width = 1,
+                                flip = FALSE, 
                                 default.units = "inches", params = NULL, ...) {
 
     # =========================================================================
@@ -399,35 +400,55 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 (length(breaks) + 1),
                 (length(breaks) + length(breaks))
             )
-            tickGrobs <- polylineGrob(
-                # x = unit(c(
-                #     rep(c(0, 0.15), length(breaks)),
-                #     (rep(c(0.85, 1), length(breaks)))
-                # ), "npc"),
-                # y = c(
-                #     unlist(lapply(breaks, rep, 2)),
-                #     unlist(lapply(breaks, rep, 2))
-                # ),
-                # id = c(
-                #     unlist(lapply(leftIDs, rep, 2)),
-                #     unlist(lapply(rightIDs, rep, 2))
-                # ),
-                x = unit(rep(c(1, 1.15), length(breaks)), "npc"),
-                y = unlist(lapply(breaks, rep, 2)),
-                id = unlist(lapply(leftIDs, rep, 2)),
-                default.units = "native",
-                gp = gpar(col = heatmapLegendInternal$gp$linecol),
-                vp = tickVP
-            )
-            ticktextGrobs = gridtext::richtext_grob(
-                text = lapply(heatmapLegendInternal$breaks, as.character), 
-                x = 1.3, y = breaks,
-                hjust = 0,
-                default.units = "native",
-                vp = tickVP,
-                gp = gpar(col = heatmapLegendInternal$gp$linecol,
-                          fontsize = heatmapLegendInternal$fontsize)
-            )
+            if (heatmapLegendInternal$flip == FALSE){
+                tickGrobs <- polylineGrob(
+                    # x = unit(c(
+                    #     rep(c(0, 0.15), length(breaks)),
+                    #     (rep(c(0.85, 1), length(breaks)))
+                    # ), "npc"),
+                    # y = c(
+                    #     unlist(lapply(breaks, rep, 2)),
+                    #     unlist(lapply(breaks, rep, 2))
+                    # ),
+                    # id = c(
+                    #     unlist(lapply(leftIDs, rep, 2)),
+                    #     unlist(lapply(rightIDs, rep, 2))
+                    # ),
+                    x = unit(rep(c(1, 1.15), length(breaks)), "npc"),
+                    y = unlist(lapply(breaks, rep, 2)),
+                    id = unlist(lapply(leftIDs, rep, 2)),
+                    default.units = "native",
+                    gp = gpar(col = heatmapLegendInternal$gp$linecol),
+                    vp = tickVP
+                )
+                ticktextGrobs = gridtext::richtext_grob(
+                    text = lapply(heatmapLegendInternal$breaks, as.character), 
+                    x = 1.3, y = breaks,
+                    hjust = 0,
+                    default.units = "native",
+                    vp = tickVP,
+                    gp = gpar(col = heatmapLegendInternal$gp$linecol,
+                              fontsize = heatmapLegendInternal$fontsize)
+                )
+            } else if (heatmapLegendInternal$flip == TRUE){
+                tickGrobs <- polylineGrob(
+                    x = unit(rep(c(-0.15, 0), length(breaks)), "npc"),
+                    y = unlist(lapply(breaks, rep, 2)),
+                    id = unlist(lapply(leftIDs, rep, 2)),
+                    default.units = "native",
+                    gp = gpar(col = heatmapLegendInternal$gp$linecol),
+                    vp = tickVP
+                )
+                ticktextGrobs = gridtext::richtext_grob(
+                    text = lapply(heatmapLegendInternal$breaks, as.character), 
+                    x = -0.3, y = breaks,
+                    hjust = 1,
+                    default.units = "native",
+                    vp = tickVP,
+                    gp = gpar(col = heatmapLegendInternal$gp$linecol,
+                              fontsize = heatmapLegendInternal$fontsize)
+                )
+            }
         }
 
         if (heatmapLegendInternal$border == TRUE) {

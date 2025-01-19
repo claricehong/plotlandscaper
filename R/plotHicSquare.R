@@ -407,14 +407,16 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
                 x = c(xleft, xleft, xright),
                 y = c(ybottom, ytop, ytop),
                 gp = gpar(col = 'black', fill = col),
-                default.units = "native"
+                default.units = "native",
+                name = 'hic_top'
             )
         } else if (half == "bottom") {
             hic_triangle <- polygonGrob(
                 x = c(xleft, xright, xright),
                 y = c(ybottom, ybottom, ytop),
                 gp = gpar(col = NA, fill = col),
-                default.units = "native"
+                default.units = "native",
+                name = 'hic_bottom'
             )
         }
 
@@ -754,9 +756,10 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
                     width = hicPlot$resolution,
                     height = hicPlot$resolution,
                     gp = gpar(col = NA, fill = shapes[[1]]$color),
-                    default.units = "native"
+                    default.units = "native",
+                    name = 'hic_square'
                 )
-
+                
                 assign("hic_grobs",
                     addGrob(
                         gTree = get("hic_grobs", envir = pgEnv),
@@ -798,7 +801,9 @@ plotHicSquare <- function(data, resolution = "auto", zrange = NULL,
     # =========================================================================
 
     if (hicInternal$draw == TRUE) {
-        grid.draw(get("hic_grobs", envir = pgEnv))
+        hic_grobs = get("hic_grobs", envir = pgEnv)
+        grid.draw(hic_grobs)
+        grid.rasterize(hic_grobs[[1]], res=300, redraw=TRUE)
     }
 
     # =========================================================================
