@@ -40,7 +40,8 @@ Imports:
     tools,
     utils,
     withr,
-    gridtext
+    gridtext,
+    rasterize
 biocViews: 
     Visualization, 
     GenomeAnnotation, 
