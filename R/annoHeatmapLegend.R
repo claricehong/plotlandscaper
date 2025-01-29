@@ -294,12 +294,13 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
             breaks <- heatmapLegendInternal$breaks
             breaks <- breaks[which(breaks >= heatmapLegend$min_val &
                 breaks <= heatmapLegend$max_val)]
+            heatmapLegendInternal$breaks = breaks
             if (!is.null(heatmapLegendInternal$plot$colorTrans)) {
                 if (grepl(
                     "log",
                     heatmapLegendInternal$plot$colorTrans
                 ) == TRUE) {
-            breaks = lapply(breaks, log, logBase)
+                breaks = unlist(lapply(breaks, log, logBase))
                 }
             }
         } else {
@@ -312,6 +313,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                     breaks <- pretty(seq(minVal, maxVal, length.out = 100), 20)
                     breaks <- breaks[which(breaks > minVal & breaks < maxVal)]
                     breaks <- breaks[seq((length(breaks) - 4), length(breaks))]
+                    heatmapLegendInternal$breaks = breaks
                     breaks <- logBase^breaks
             }
             }
@@ -421,6 +423,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                     gp = gpar(col = heatmapLegendInternal$gp$linecol),
                     vp = tickVP
                 )
+                
                 ticktextGrobs = gridtext::richtext_grob(
                     text = lapply(heatmapLegendInternal$breaks, as.character), 
                     x = 1.3, y = breaks,
@@ -477,84 +480,106 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
             just = c("left", "center"), default.units = "npc",
             gp = heatmapLegendInternal$gp
         )
-        lowLab <- textGrob(
-            label = format(heatmapLegend$min_val,
-                scientific = heatmapLegendInternal$scientific,
-                digits = heatmapLegendInternal$digits
-            ),
-            x = 0, y = 0.5, just = c("left", "center"),
-            default.units = "npc",
-            gp = heatmapLegendInternal$gp
-        )
-        highLab <- textGrob(
-            label = format(heatmapLegend$max_val,
-                scientific = heatmapLegendInternal$scientific,
-                digits = heatmapLegendInternal$digits
-            ),
-            x = 1, y = 0.5, just = c("right", "center"),
-            default.units = "npc",
-            gp = heatmapLegendInternal$gp
-        )
+        # lowLab <- textGrob(
+        #     label = format(heatmapLegend$min_val,
+        #         scientific = heatmapLegendInternal$scientific,
+        #         digits = heatmapLegendInternal$digits
+        #     ),
+        #     x = 0, y = 0.5, just = c("left", "center"),
+        #     default.units = "npc",
+        #     gp = heatmapLegendInternal$gp
+        # )
+        # highLab <- textGrob(
+        #     label = format(heatmapLegend$max_val,
+        #         scientific = heatmapLegendInternal$scientific,
+        #         digits = heatmapLegendInternal$digits
+        #     ),
+        #     x = 1, y = 0.5, just = c("right", "center"),
+        #     default.units = "npc",
+        #     gp = heatmapLegendInternal$gp
+        # )
+        # 
+        # lW <- convertWidth(
+        #     x = grobWidth(lowLab), unitTo = "npc",
+        #     valueOnly = TRUE
+        # )
+        # hW <- convertWidth(
+        #     x = grobWidth(highLab), unitTo = "npc",
+        #     valueOnly = TRUE
+        # )
+        # dW <- convertWidth(
+        #     x = grobWidth(digitLab), unitTo = "npc",
+        #     valueOnly = TRUE
+        # )
 
-        lW <- convertWidth(
-            x = grobWidth(lowLab), unitTo = "npc",
-            valueOnly = TRUE
-        )
-        hW <- convertWidth(
-            x = grobWidth(highLab), unitTo = "npc",
-            valueOnly = TRUE
-        )
-        dW <- convertWidth(
-            x = grobWidth(digitLab), unitTo = "npc",
-            valueOnly = TRUE
-        )
+        # new_width <- 1 - (hW + lW + dW)
+        # xMin <- lW + (0.5 * dW)
 
-        new_width <- 1 - (hW + lW + dW)
-        xMin <- lW + (0.5 * dW)
-        color_scale <- rasterGrob(matrix(
+        color_scale <- rasterGrob(
+            matrix(
             data = color_scale,
             nrow = 1,
             ncol = length(color_scale)
         ),
-        width = unit(new_width, "npc"),
+        width = 1, x = heatmapLegendInternal$x, 
+        # width = unit(new_width, "npc"),
         height = page_coords$height,
-        x = unit(xMin, "npc"), just = "left"
+        # x = unit(xMin, "npc"), 
+        y = unit(0.5, "npc"),
+        just = "left"
         )
 
         if (heatmapLegendInternal$ticks == TRUE) {
             tickVP <- viewport(
-                x = unit(xMin, "npc"), y = unit(1, "npc"),
-                width = unit(new_width, "npc"),
+                # x = unit(xMin, "npc"), 
+                x = unit(0, "npc"), y = unit(0, "npc"),
+                # width = unit(new_width, "npc"),
+                width = 1,
                 height = page_coords$height,
                 just = "left",
-                xscale = c(
-                    heatmapLegend$min_val,
-                    heatmapLegend$max_val
-                ),
+                # xscale = c(
+                #     heatmapLegend$min_val,
+                #     heatmapLegend$max_val
+                # ),
+                xscale = c(minVal, maxVal),
                 name = paste0(vp_name, "_ticks")
             )
-            breaks = 
+
             bottomIDs <- seq(1, length(breaks))
             topIDs <- seq(
                 (length(breaks) + 1),
                 (length(breaks) + length(breaks))
             )
+            
             tickGrobs <- polylineGrob(
-                x = c(
-                    unlist(lapply(breaks, rep, 2)),
-                    unlist(lapply(breaks, rep, 2))
-                ),
-                y = unit(c(
-                    rep(c(0, 0.15), length(breaks)),
-                    rep(c(0.85, 1), length(breaks))
-                ), "npc"),
-                id = c(
-                    unlist(lapply(bottomIDs, rep, 2)),
-                    unlist(lapply(topIDs, rep, 2))
-                ),
+                # x = c(
+                #     unlist(lapply(breaks, rep, 2)),
+                #     unlist(lapply(breaks, rep, 2))
+                # ),
+                # y = unit(c(
+                #     rep(c(0, 0.15), length(breaks)),
+                #     rep(c(0.85, 1), length(breaks))
+                # ), "npc"),
+                # id = c(
+                #     unlist(lapply(bottomIDs, rep, 2)),
+                #     unlist(lapply(topIDs, rep, 2))
+                # ),
+                y = unit(rep(c(0.25, 0.4), length(breaks)), "npc"),
+                x = unlist(lapply(breaks, rep, 2)),
+                id = unlist(lapply(bottomIDs, rep, 2)),
                 default.units = "native",
                 gp = gpar(col = heatmapLegendInternal$gp$linecol),
                 vp = tickVP
+            )
+            
+            ticktextGrobs = gridtext::richtext_grob(
+                text = lapply(heatmapLegendInternal$breaks, as.character), 
+                y = 0.8, x = breaks,
+                vjust = 1.9,
+                default.units = "native",
+                vp = tickVP,
+                gp = gpar(col = heatmapLegendInternal$gp$linecol,
+                          fontsize = heatmapLegendInternal$fontsize)
             )
         }
 
@@ -563,9 +588,11 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
             heatmapLegendInternal$gp$col <-
                 heatmapLegendInternal$gp$linecol
             borderGrob <- rectGrob(
-                x = unit(lW + (0.5 * dW), "npc"),
+                # x = unit(lW + (0.5 * dW), "npc"),
+                x = heatmapLegendInternal$x,
                 just = "left",
-                width = unit(new_width, "npc"),
+                # width = unit(new_width, "npc"),
+                width = 1,
                 height = page_coords$height,
                 gp = heatmapLegendInternal$gp
             )
