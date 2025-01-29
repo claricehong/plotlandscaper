@@ -521,7 +521,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
             nrow = 1,
             ncol = length(color_scale)
         ),
-        width = 1, x = heatmapLegendInternal$x, 
+        width = 1, x = unit(0, "npc"), 
         # width = unit(new_width, "npc"),
         height = page_coords$height,
         # x = unit(xMin, "npc"), 
@@ -589,7 +589,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 heatmapLegendInternal$gp$linecol
             borderGrob <- rectGrob(
                 # x = unit(lW + (0.5 * dW), "npc"),
-                x = heatmapLegendInternal$x,
+                x = unit(0, "npc"),
                 just = "left",
                 # width = unit(new_width, "npc"),
                 width = 1,
