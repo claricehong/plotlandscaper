@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotRaster.R
 \name{plotRaster}
 \alias{plotRaster}
-\title{Plot a raster object within a plotgardener layout}
+\title{Plot a raster object within a plotlandscaper layout}
 \usage{
 plotRaster(
     image,
@@ -27,7 +27,7 @@ containing a "b" combined with a numeric value specifying
 raster y-locations.
 The character vector will place raster y relative to the bottom
 of the most recently plotted plot according to the units
-of the plotgardener page.}
+of the plotlandscaper page.}
 
 \item{width}{A numeric vector or unit object specifying raster widths.}
 
@@ -48,7 +48,7 @@ Default value is \code{default.units = "inches"}.}
 \item{interpolate}{A logical value indicating whether to linearly
 interpolate the image. Default value is \code{interpolate = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -58,7 +58,7 @@ Returns a \code{raster} object containing
 relevant placement and \link[grid]{grob} information.
 }
 \description{
-Plot a raster object within a plotgardener layout
+Plot a raster object within a plotlandscaper layout
 }
 \examples{
 library(png)
@@ -67,16 +67,16 @@ library(png)
 
 pg_type <- readPNG(system.file("images",
     "pg-wordmark.png",
-    package = "plotgardener"
+    package = "plotlandscaper"
 ))
 
 gene_gnome <- readPNG(system.file("images",
     "pg-gnome-hole-shadow.png",
-    package = "plotgardener"
+    package = "plotlandscaper"
 ))
 
 rlogo <- readPNG(system.file("images", "Rlogo.png", 
-                package = "plotgardener"))
+                package = "plotlandscaper"))
 
 ## Create page
 pageCreate(width = 5, height = 6)

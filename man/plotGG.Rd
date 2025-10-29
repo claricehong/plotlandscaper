@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotGG.R
 \name{plotGG}
 \alias{plotGG}
-\title{Plot a ggplot2 plot, gtable, or grob object in a plotgardener layout}
+\title{Plot a ggplot2 plot, gtable, or grob object in a plotlandscaper layout}
 \usage{
 plotGG(
     plot,
@@ -24,7 +24,7 @@ plotGG(
 combined with a numeric value specifying ggplot y-location.
 The character value will
 place the ggplot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying ggplot width.}
 
@@ -41,7 +41,7 @@ Default value is \code{just = c("left", "top")}.}
 if \code{x}, \code{y}, \code{width}, or \code{height} are only given
 as numerics. Default value is \code{default.units = "inches"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 }
 \value{
@@ -49,7 +49,7 @@ Returns a \code{pg_gg} object containing
 relevant placement and \link[grid]{grob} information.
 }
 \description{
-Plot a ggplot2 plot, gtable, or grob object in a plotgardener layout
+Plot a ggplot2 plot, gtable, or grob object in a plotlandscaper layout
 }
 \examples{
 ## Create a plot using ggplot2

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotRect.R
 \name{plotRect}
 \alias{plotRect}
-\title{Plot a rectangle within a plotgardener layout}
+\title{Plot a rectangle within a plotlandscaper layout}
 \usage{
 plotRect(
     x,
@@ -28,7 +28,7 @@ containing a "b" combined with a numeric value specifying
 rectangle y-locations.
 The character vector will place rectangle y-locations relative to
 the bottom of the most recently plotted plot according to
-the units of the plotgardener page.}
+the units of the plotlandscaper page.}
 
 \item{width}{A numeric vector or unit object specifying rectangle widths.}
 
@@ -61,7 +61,7 @@ Default value is \code{fill = NA}.}
 \item{alpha}{Numeric value specifying color transparency.
 Default value is \code{alpha = 1}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -71,7 +71,7 @@ Returns a \code{rect} object containing
 relevant placement and \link[grid]{grob} information.
 }
 \description{
-Plot a rectangle within a plotgardener layout
+Plot a rectangle within a plotlandscaper layout
 }
 \examples{
 ## Create a page

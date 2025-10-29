@@ -3,7 +3,7 @@
 \name{pageGuideHorizontal}
 \alias{pageGuideHorizontal}
 \title{Draw a horizontal guideline at a specified y-coordinate
-on a plotgardener page}
+on a plotlandscaper page}
 \usage{
 pageGuideHorizontal(
     y,
@@ -23,7 +23,7 @@ Default value is \code{default.units = "inches"}.}
 \item{linecolor}{Character value indicating color of guideline.
 Default value is \code{linecolor = "grey55"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -33,7 +33,7 @@ None.
 }
 \description{
 Draw a horizontal guideline at a specified y-coordinate
-on a plotgardener page
+on a plotlandscaper page
 }
 \examples{
 ## Create a page

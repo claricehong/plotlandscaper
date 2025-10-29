@@ -7,7 +7,7 @@
 c(..., recursive = FALSE)
 }
 \arguments{
-\item{...}{\link[plotgardener]{pgParams} objects to be concatenated.}
+\item{...}{\link[plotlandscaper]{pgParams} objects to be concatenated.}
 
 \item{recursive}{logical. If \code{recursive = TRUE}, the function
 recursively descends through lists

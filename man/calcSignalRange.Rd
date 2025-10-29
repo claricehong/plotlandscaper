@@ -25,7 +25,7 @@ specific chromosome is desired.}
 \item{chromend}{Integer end position on chromosome to get data range.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{negData}{A logical value indicating whether any of the data has both

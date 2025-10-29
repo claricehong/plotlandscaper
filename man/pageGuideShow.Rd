@@ -49,7 +49,7 @@ annoGenomeLabel(
 )
 }
 \seealso{
-\link[plotgardener]{pageCreate},
-\link[plotgardener]{pageGuideHorizontal},
-\link[plotgardener]{pageGuideVertical}
+\link[plotlandscaper]{pageCreate},
+\link[plotlandscaper]{pageGuideHorizontal},
+\link[plotlandscaper]{pageGuideVertical}
 }

@@ -54,7 +54,7 @@ from a file for a given region at a given resolution. If the total amount of
 data is larger than the \code{binChunkSize}, data will be read in multiple
 chunks. Default value is \code{binChunkSize = 5e6}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{quiet}{A logical indicating whether or not to print messages.}
@@ -94,7 +94,7 @@ mcoolData_2500Kb <- readCool(file = mcoolFile, chrom = "2",
                              resolution = 2500000)
 }
 \seealso{
-\link[plotgardener]{readHic}
+\link[plotlandscaper]{readHic}
 }
 \author{
 Sarah Parker, Nicole Kramer

@@ -2,7 +2,6 @@
 
 export(annoDomains)
 export(annoGenomeLabel)
-export(annoHeatmapLegend)
 export(annoHighlight)
 export(annoPixels)
 export(annoSegments)

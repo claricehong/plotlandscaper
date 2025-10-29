@@ -2,19 +2,19 @@
 % Please edit documentation in R/pagePlotRemove.R
 \name{pagePlotRemove}
 \alias{pagePlotRemove}
-\title{Remove plotgardener plots and annotations}
+\title{Remove plotlandscaper plots and annotations}
 \usage{
 pagePlotRemove(plot)
 }
 \arguments{
 \item{plot}{Plot object to be removed, defined by the output
-of a plotgardener plotting function.}
+of a plotlandscaper plotting function.}
 }
 \value{
 None.
 }
 \description{
-Remove plotgardener plots and annotations
+Remove plotlandscaper plots and annotations
 }
 \examples{
 ## Load Hi-C data

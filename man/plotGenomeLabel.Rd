@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotGenomeLabel.R
 \name{plotGenomeLabel}
 \alias{plotGenomeLabel}
-\title{Plot genomic coordinates along the x or y-axis of a plotgardener plot}
+\title{Plot genomic coordinates along the x or y-axis of a plotlandscaper plot}
 \usage{
 plotGenomeLabel(
     chrom,
@@ -38,7 +38,7 @@ or a character vector of chromosomes for a whole genome Manhattan plot.}
 \item{chromend}{Integer end of genome label.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.}
+\link[plotlandscaper]{assembly} object.}
 
 \item{fontsize}{A numeric specifying text fontsize in points.
 Default value is \code{fontsize = 10}.}
@@ -56,7 +56,7 @@ and coordinate labels. Default value is \code{margin = unit(1, "mm")},}
 along the genome label. Default value is \code{scale = "bp"}. Options are:
 \itemize{
 \item{\code{"bp"}: }{base pairs.}
-\item{\code{"Kb"}: }{kilobase pairs. 1 kilobase pair is equal to
+\item{\code{"kb"}: }{kilobase pairs. 1 kilobase pair is equal to
 1000 base pairs.}
 \item{\code{"Mb"}: }{megabase pairs. 1 megabase pair is equal to
 1000000 base pairs.}
@@ -94,7 +94,7 @@ fraction of text height. Default value is \code{tcl = 0.5}.}
 combined with a numeric value specifying genome label y-location.
 The character value will
 place the genome label y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{length}{A numeric or unit object specifying length of
 genome label axis.}
@@ -110,7 +110,7 @@ and \code{"top"}. Default value is \code{just = c("left", "top")}.}
 use if \code{x}, \code{y}, or \code{length} are only given as numerics.
 Default value is \code{default.units = "inches"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters or digit specifications.
@@ -121,7 +121,7 @@ Returns a \code{genomeLabel} object containing
 relevant genomic region, placement, and \link[grid]{grob} information.
 }
 \description{
-Plot genomic coordinates along the x or y-axis of a plotgardener plot
+Plot genomic coordinates along the x or y-axis of a plotlandscaper plot
 }
 \examples{
 ## Load hg19 genomic annotation packages
@@ -156,7 +156,7 @@ plotGenomeLabel(
     chrom = "chr8",
     chromstart = 1000000, chromend = 2000000,
     assembly = "hg19",
-    scale = "Kb",
+    scale = "kb",
     x = 0.5, y = 1.5, length = 4, just = c("left", "top"),
     default.units = "inches"
 )

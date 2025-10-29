@@ -60,7 +60,7 @@ negative scores. Default value is \code{negData = FALSE}.}
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{linecolor}{A character value or vector of length 2 specifying the
@@ -83,7 +83,7 @@ Default value is \code{scale = FALSE}.}
 \item{label}{An optional character value to conveniently add a text label
 to the plot. If \code{scale = TRUE}, the label will be draw in the top right
 of the plot. Otherwise, the label will be drawn in the top left of the plot.
-For more customizable labels, use \link[plotgardener]{plotText}.
+For more customizable labels, use \link[plotlandscaper]{plotText}.
 Default value is \code{label = NULL}.}
 
 \item{bg}{Character value indicating background color.
@@ -111,7 +111,7 @@ Default value is \code{orientation = "h"}. Options are:
 combined with a numeric value specifying signal plot y-location.
 The character value will
 place the signal plot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying signal plot width.}
 
@@ -131,7 +131,7 @@ numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should be
 produced. Default value \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -144,7 +144,7 @@ genomic region, placement, and \link[grid]{grob} information.
 Plot any kind of signal track data for a single chromosome
 }
 \details{
-#A signal track can be placed on a plotgardener coordinate page
+#A signal track can be placed on a plotlandscaper coordinate page
 by providing plot placement parameters:
 \preformatted{
 plotSignal(data, chrom,

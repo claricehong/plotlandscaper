@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotSegments.R
 \name{plotSegments}
 \alias{plotSegments}
-\title{Draw a line segment within a plotgardener layout}
+\title{Draw a line segment within a plotlandscaper layout}
 \usage{
 plotSegments(
     x0,
@@ -29,7 +29,7 @@ of values containing a "b" combined with a numeric value specifying
 starting y-values of the line segments.
 The character vector will place starting y-values relative to the
 bottom of the most recently plotted plot according to the
-units of the plotgardener page.}
+units of the plotlandscaper page.}
 
 \item{x1}{A numeric vector or unit object indicating the stopping
 x-values of the line segments.}
@@ -39,7 +39,7 @@ alues containing a "b" combined with a numeric value specifying
 stopping y-values of the line segments.
 The character vector will place stopping y-values relative to the
 bottom of the most recently plotted plot according to the
-units of the plotgardener page.}
+units of the plotlandscaper page.}
 
 \item{default.units}{A string indicating the default units to use
 if \code{x0}, \code{y0}, \code{x1}, or \code{y1} are only given as
@@ -73,7 +73,7 @@ Default value is \code{linejoin = "mitre"}. Options are:
 \item{arrow}{A list describing arrow heads to place at either end of
 the line segments, as produced by the \link[grid]{arrow} function.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -83,7 +83,7 @@ Returns a \code{segments} object containing relevant
 placement and \link[grid]{grob} information.
 }
 \description{
-Draw a line segment within a plotgardener layout
+Draw a line segment within a plotlandscaper layout
 }
 \examples{
 library(grid)

@@ -656,7 +656,7 @@ readCool <- function(file, chrom, chromstart = NULL, chromend = NULL,
     ## Extract counts and match locations --------------------------------------
     
     ## Get bin offsets for counts
-    bin_offsets <- h5read(rcool$file, 
+    bin_offsets <- h5read(rcool$file, bit64conversion='double',
                           name = paste0(datasetPath,"/indexes/bin1_offset"))
                           
     ## Pull all bin2 ids for interactions with all bin1s between start1 and end1
@@ -706,7 +706,7 @@ readCool <- function(file, chrom, chromstart = NULL, chromend = NULL,
                            name = paste0(datasetPath,"/bins/weight"),
                            list(as.numeric(bin2ids+1)))
         # counts <- counts / (bin1norm * bin2norm)
-        count = counts * bin1norm * bin2norm
+        counts = counts * bin1norm * bin2norm
     } else if (rcool$norm != "NONE"){
         bin1norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/", rcool$norm),
@@ -714,8 +714,8 @@ readCool <- function(file, chrom, chromstart = NULL, chromend = NULL,
         bin2norm <- h5read(rcool$file,
                            name = paste0(datasetPath,"/bins/", rcool$norm),
                            list(as.numeric(bin2ids+1)))
-        # counts <- counts / (bin1norm * bin2norm)
-        count = counts * bin1norm * bin2norm
+        counts <- counts / (bin1norm * bin2norm)
+        # count = counts * bin1norm * bin2norm
     }
     
     ## Get genomic locations for each bin id 

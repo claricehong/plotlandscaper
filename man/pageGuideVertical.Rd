@@ -3,7 +3,7 @@
 \name{pageGuideVertical}
 \alias{pageGuideVertical}
 \title{Draw a vertical guideline at a specified x-coordinate on a 
-plotgardener page}
+plotlandscaper page}
 \usage{
 pageGuideVertical(
     x,
@@ -23,7 +23,7 @@ Default value is \code{default.units = "inches"}.}
 \item{linecolor}{Character value indicating color of guideline.
 Default value is \code{linecolor = "grey55"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -33,7 +33,7 @@ None.
 }
 \description{
 Draw a vertical guideline at a specified x-coordinate on a 
-plotgardener page
+plotlandscaper page
 }
 \examples{
 ## Create a page

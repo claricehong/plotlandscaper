@@ -58,7 +58,7 @@ should be split. Default value is \code{negData = FALSE}.}
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{linecolor}{A character value or vector of character values specifying 
@@ -83,7 +83,7 @@ Default value is \code{scale = FALSE}.}
 to signal tracks. If \code{scale = TRUE}, the labels will be drawn in the 
 top right of the signal tracks. Otherwise, the label will be drawn in the 
 top left of the plot. For more customizable labels, 
-use \link[plotgardener]{plotText}.}
+use \link[plotlandscaper]{plotText}.}
 
 \item{bg}{Character value indicating background color.
 Default value is \code{bg = NA}.}
@@ -113,7 +113,7 @@ x-location.}
 combined with a numeric value specifying overall multisignal plot y-location.
 The character value will
 place the multisignal plot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying overall multisignal plot 
 width.}
@@ -138,7 +138,7 @@ Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should be
 produced. Default value \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotPolygon.R
 \name{plotPolygon}
 \alias{plotPolygon}
-\title{Plot a polygon within a plotgardener layout}
+\title{Plot a polygon within a plotlandscaper layout}
 \usage{
 plotPolygon(
     x,
@@ -28,7 +28,7 @@ of values containing a "b" combined with a numeric value specifying
 polygon vertex y-locations.
 The character vector will place polygon vertex y-locations relative
 to the bottom of the most recently plotted plot according
-to the units of the plotgardener page.}
+to the units of the plotlandscaper page.}
 
 \item{default.units}{A string indicating the default units to use
 if \code{x} or \code{y} are only given as numeric vectors.
@@ -57,7 +57,7 @@ belong to the same polygon.}
 \code{x} and \code{y} into multiple polygons. Specifies consecutive
 blocks of locations which make up separate polygons.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -67,7 +67,7 @@ Returns a \code{polygon} object containing relevant
 placement and \link[grid]{grob} information.
 }
 \description{
-Plot a polygon within a plotgardener layout
+Plot a polygon within a plotlandscaper layout
 }
 \examples{
 ## Create a page

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotText.R
 \name{plotText}
 \alias{plotText}
-\title{Plot text within a plotgardener layout}
+\title{Plot text within a plotlandscaper layout}
 \usage{
 plotText(
     label,
@@ -41,7 +41,7 @@ values containing a "b" combined with a numeric value
 specifying text y-locations.
 The character vector will place text y-locations relative to the
 bottom of the most recently plotted plot according to the
-units of the plotgardener page.}
+units of the plotlandscaper page.}
 
 \item{just}{Justification of text relative to its (x, y) location.
 If there are two values, the first value specifies horizontal
@@ -54,7 +54,7 @@ Default value is \code{just = "center"}.}
 \code{x} or \code{y} are only given as numerics or numeric vectors.
 Default value is \code{default.units = "inches"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -64,7 +64,7 @@ Returns a \code{text} object containing relevant
 placement and \link[grid]{grob} information.
 }
 \description{
-Plot text within a plotgardener layout
+Plot text within a plotlandscaper layout
 }
 \examples{
 ## Create a page
@@ -72,7 +72,7 @@ pageCreate(width = 4, height = 2, default.units = "inches")
 
 ## Plot text, adjusting fontsize and fontface
 plotText(
-    label = "plotgardener", fontsize = 14, fontface = "bold",
+    label = "plotlandscaper", fontsize = 14, fontface = "bold",
     x = 1, y = 1, just = "center", default.units = "inches"
 )
 

@@ -63,7 +63,7 @@ Default value is \code{matrix = "observed"}. Options are:
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{palette}{A function describing the color palette to use for
@@ -86,7 +86,7 @@ Default value is \code{bg = NA}.}
 combined with a numeric value specifying triangle Hi-C plot y-location.
 The character value will
 place the triangle Hi-C plot y relative to the bottom of the most
-recently plotted plot according to the units of the plotgardener page.}
+recently plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying the bottom
 width of the Hi-C plot triangle.}
@@ -109,7 +109,7 @@ numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should
 be produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{quiet}{A logical indicating whether or not to print messages.}
@@ -125,7 +125,7 @@ Plot a Hi-C interaction matrix in a triangular format
 In this orientation, the x-axis represents the genomic coordinates and
 the y-axis corresponds to distance in Hi-C bins.
 
-A triangle Hi-C plot can be placed on a plotgardener coordinate page
+A triangle Hi-C plot can be placed on a plotlandscaper coordinate page
 by providing plot placement parameters:
 \preformatted{
 plotHicTriangle(data, chrom,
@@ -179,5 +179,5 @@ annoHeatmapLegend(
 pageGuideHide()
 }
 \seealso{
-\link[plotgardener]{readHic}, \link[plotgardener]{readCool}
+\link[plotlandscaper]{readHic}, \link[plotlandscaper]{readCool}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotCircle.R
 \name{plotCircle}
 \alias{plotCircle}
-\title{Plot a circle within a plotgardener layout}
+\title{Plot a circle within a plotlandscaper layout}
 \usage{
 plotCircle(
     x,
@@ -27,7 +27,7 @@ of values containing a "b" combined with a numeric value
 specifying circle y-locations relative to center.
 The character vector will place circle y-locations relative to
 the bottom of the most recently plotted plot according
-to the units of the plotgardener page.}
+to the units of the plotlandscaper page.}
 
 \item{r}{A numeric vector or unit object specifying radii.}
 
@@ -50,7 +50,7 @@ Default value is \code{fill = NA}.}
 \item{alpha}{Numeric value specifying color transparency.
 Default value is \code{alpha = 1}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -60,7 +60,7 @@ Returns a \code{circle} object containing
 relevant placement and \link[grid]{grob} information.
 }
 \description{
-Plot a circle within a plotgardener layout
+Plot a circle within a plotlandscaper layout
 }
 \examples{
 ## Create a page

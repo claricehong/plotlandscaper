@@ -39,7 +39,7 @@ plotTranscripts(
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{fill}{Character value(s) as a single value or vector
@@ -104,7 +104,7 @@ Default value is \code{bg = NA}.}
 combined with a numeric value specifying transcript plot y-location.
 The character value will
 place the transcript plot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying transcript plot width.}
 
@@ -125,7 +125,7 @@ numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should be
 produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 }
 \value{
@@ -136,7 +136,7 @@ genomic region, placement, and \link[grid]{grob} information.
 Plot gene transcripts in a pileup style for a single chromosome
 }
 \details{
-A transcripts plot can be placed on a plotgardener coordinate page
+A transcripts plot can be placed on a plotlandscaper coordinate page
 by providing plot placement parameters:
 \preformatted{
 plotTranscripts(chrom, chromstart = NULL, chromend = NULL,
@@ -188,6 +188,6 @@ plotLegend(
 pageGuideHide()
 }
 \seealso{
-\link[plotgardener]{assembly},
-\link[plotgardener]{genomes}, \link[plotgardener]{defaultPackages}
+\link[plotlandscaper]{assembly},
+\link[plotlandscaper]{genomes}, \link[plotlandscaper]{defaultPackages}
 }

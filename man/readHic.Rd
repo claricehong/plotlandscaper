@@ -41,7 +41,7 @@ for interchromosomal data.}
 for interchromosomal data.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{resolution}{A numeric specifying the width of each pixel.
@@ -70,7 +70,7 @@ Default value is \code{matrix = "observed"}. Options are:
 \item{\code{"log2oe"}: }{Log2 transformed observed/expected counts.}
 }}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{quiet}{A logical indicating whether or not to print messages.}

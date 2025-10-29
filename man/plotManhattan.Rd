@@ -64,17 +64,17 @@ If left \code{NULL}, all chromosomes found in data will be plotted.}
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{fill}{A single character value, a vector, or a 
-\link[plotgardener]{colorby} object specifying fill colors of data points.
+\link[plotlandscaper]{colorby} object specifying fill colors of data points.
 For a Manhattan plot with multiple chromosomes, a vector of colors 
 will be used to color points of different chromosomes.
 Default value is \code{fill = "black"}.}
 
 \item{pch}{A numeric value or numeric vector specifying point symbols.
-If \link[plotgardener]{colorby} object is supplied for \code{fill},
+If \link[plotlandscaper]{colorby} object is supplied for \code{fill},
 point symbols will be mapped to
 \code{colorby} values. Default value is \code{pch = 19}.}
 
@@ -127,7 +127,7 @@ is \code{baseline.lwd = 1}.}
 combined with a numeric value specifying Manhattan plot y-location.
 The character value will
 place the Manhattan plot y relative to the bottom of the most
-recently plotted plot according to the units of the plotgardener page.}
+recently plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying Manhattan plot width.}
 
@@ -150,7 +150,7 @@ as numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should
 be produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -163,7 +163,7 @@ relevant genomic region, placement, and \link[grid]{grob} information.
 Plot a Manhattan plot
 }
 \details{
-A Manhattan plot can be placed on a plotgardener coordinate page by
+A Manhattan plot can be placed on a plotlandscaper coordinate page by
 providing plot placement parameters:
 \preformatted{
 plotManhattan(data,

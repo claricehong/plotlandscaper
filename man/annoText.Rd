@@ -34,7 +34,7 @@ Default value is \code{rot = 0}.}
 \item{check.overlap}{A logical value to indicate whether to check for
 and omit overlapping text. Default value is \code{check.overlap = FALSE}.}
 
-\item{plot}{Input plotgardener plot to internally place text relative to.}
+\item{plot}{Input plotlandscaper plot to internally place text relative to.}
 
 \item{x}{A numeric vector or unit object specifying text x-location.}
 
@@ -51,7 +51,7 @@ Default value is \code{just = "center"}.}
 \code{x} or \code{y} are only given as numerics or numeric vectors.
 Default value is \code{default.units = "native"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -67,7 +67,7 @@ Annotates text within a plot
 ## Create a page
 pageCreate(width = 4, height = 4, default.units = "inches")
 
-## Plot text relative to a plotgardener plot
+## Plot text relative to a plotlandscaper plot
 library(plotgardenerData)
 data("IMR90_HiC_10kb")
 hicPlot <- plotHicSquare(

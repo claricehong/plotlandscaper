@@ -34,7 +34,7 @@ x-values of the line segments.}
 \item{y1}{A numeric vector or unit object indicating the stopping
 y-values of the line segments.}
 
-\item{plot}{Input plotgardener plot to internally plot line segments
+\item{plot}{Input plotlandscaper plot to internally plot line segments
 relative to.}
 
 \item{default.units}{A string indicating the default units to use
@@ -69,7 +69,7 @@ Default value is \code{linejoin = "mitre"}. Options are:
 \item{arrow}{A list describing arrow heads to place at either
 end of the line segments, as produced by the \link[grid]{arrow} function.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}

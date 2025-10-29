@@ -26,8 +26,8 @@ the vector of colors
 \details{
 This function allows for the manual mapping of a numerical or factor
 vector to a palette of colors. For a more automatic implementation 
-of this functionality in plotgardener functions,  
-\link[plotgardener]{colorby} objects can be used.
+of this functionality in plotlandscaper functions,  
+\link[plotlandscaper]{colorby} objects can be used.
 }
 \examples{
 ## Load paired ranges data in BEDPE format
@@ -77,5 +77,5 @@ plotText(
 
 }
 \seealso{
-\link[plotgardener]{colorby}
+\link[plotlandscaper]{colorby}
 }

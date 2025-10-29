@@ -2,7 +2,7 @@
 % Please edit documentation in R/pageGuideHide.R
 \name{pageGuideHide}
 \alias{pageGuideHide}
-\title{Remove guides from a plotgardener page}
+\title{Remove guides from a plotlandscaper page}
 \usage{
 pageGuideHide()
 }
@@ -10,7 +10,7 @@ pageGuideHide()
 None.
 }
 \description{
-Remove guides from a plotgardener page
+Remove guides from a plotlandscaper page
 }
 \note{
 Please note that due to the implementation of `grid` removal functions,

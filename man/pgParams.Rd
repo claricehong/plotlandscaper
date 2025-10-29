@@ -2,7 +2,7 @@
 % Please edit documentation in R/pgParams.R
 \name{pgParams}
 \alias{pgParams}
-\title{pgParams: plotgardener parameters object}
+\title{pgParams: plotlandscaper parameters object}
 \usage{
 pgParams(assembly = "hg38", gene = NULL, geneBuffer = NULL, ...)
 }
@@ -19,7 +19,7 @@ Can be one integer or a vector of length 2, where the first integer
 will extend the start of the gene and the second integer
 will extend the end of the gene.}
 
-\item{...}{This function will take any plotgardener function
+\item{...}{This function will take any plotlandscaper function
 parameters and their values:
 \itemize{
 \item{\code{alpha}}
@@ -141,18 +141,18 @@ parameters and their values:
 }
 \value{
 Returns an object of class \code{pgParams}
-containing plotgardener function arguments.
+containing plotlandscaper function arguments.
 }
 \description{
 Creates an object of class "pgParams" that can be used by
-plotgardener functions. pgParams can be used to set a set of parameters
+plotlandscaper functions. pgParams can be used to set a set of parameters
 to be shared across multiple functions.
 }
 \details{
-pgParams generates arguments from exported plotgardener functions at
+pgParams generates arguments from exported plotlandscaper functions at
 loading time of the package. Arguments defined in a pgParams object
-can be passed into the \code{params} argument of plotgardener functions.
-params arguments can be overridden from within plotgardener functions.
+can be passed into the \code{params} argument of plotlandscaper functions.
+params arguments can be overridden from within plotlandscaper functions.
 
 pgParams also provides an alternative region definition mechanism.
 Given a gene name and genome assembly, pgParams returns the appropriate
@@ -173,6 +173,6 @@ p1 <- pgParams(gene = "IL1B", assembly = "hg19")
 ## Optionally add more parameters
 p2 <- pgParams(fontsize = 10, assembly = "hg19")
 
-## Combine parameters and pass them to a plotgardener function
+## Combine parameters and pass them to a plotlandscaper function
 plotGenes(params = c(p1, p2))
 }

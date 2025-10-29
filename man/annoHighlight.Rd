@@ -43,7 +43,7 @@ Default value is \code{alpha = 0.4}.}
 with a numeric value specifying square highlight box y-location.
 The character value will place the highlight box y relative to the
 bottom of the most recently plotted plot according to the
-units of the \code{plotgardener} page.}
+units of the \code{plotlandscaper} page.}
 
 \item{height}{A numeric or unit object specifying highlight box height.}
 
@@ -58,7 +58,7 @@ Default value is \code{just = c("left", "top")}.}
 \code{y} or \code{height} are only given as numerics or numeric vectors.
 Default value is \code{default.units = "inches"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}

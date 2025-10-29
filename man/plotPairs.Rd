@@ -43,15 +43,15 @@ in BEDPE format specifying data to be plotted, or a
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{fill}{A single character value, a vector, or 
-a \link[plotgardener]{colorby} object specifying fill colors of
+a \link[plotlandscaper]{colorby} object specifying fill colors of
 paired range elements. Default value is \code{fill = "#1f4297"}.}
 
 \item{linecolor}{A single character value, a vector, or a
-\link[plotgardener]{colorby} object specifying the color of the lines
+\link[plotlandscaper]{colorby} object specifying the color of the lines
 outlining paired range elements. Default value is \code{linecolor = NA}.
 Special options include:
 \itemize{
@@ -93,7 +93,7 @@ Default value is \code{baseline.lwd = 1}.}
 combined with a numeric value specifying paired range plot y-location.
 The character value will
 place the paired range plot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying paired range plot width.}
 
@@ -114,7 +114,7 @@ as numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics
 output should be produced.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}
@@ -127,7 +127,7 @@ genomic region, placement, and \link[grid]{grob} information.
 Plot paired-end genomic range elements
 }
 \details{
-#' A paired ranges plot can be placed on a plotgardener coordinate page
+#' A paired ranges plot can be placed on a plotlandscaper coordinate page
 by providing plot placement parameters:
 \preformatted{
 plotPairs(data, chrom,

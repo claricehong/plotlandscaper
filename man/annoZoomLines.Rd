@@ -65,7 +65,7 @@ Default value is \code{linecolor = "grey"}.}
 \item{lty}{A numeric specifying zoom line type.
 Default value is \code{lty = 2}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams}
+\item{params}{An optional \link[plotlandscaper]{pgParams}
 object containing relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters. See \link[grid]{gpar}.}

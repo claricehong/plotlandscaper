@@ -26,7 +26,7 @@ plotIdeogram(
 \item{chrom}{Chromosome to be plotted, as a string.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{data}{Custom cytoband data, as a dataframe with the following
@@ -62,7 +62,7 @@ number of colors as there are gieStain values for each genome assembly.}
 combined with a numeric value specifying ideogram y-location.
 The character value will
 place the ideogram y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying ideogram width.}
 
@@ -82,7 +82,7 @@ numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output should be
 produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 }
 \value{
@@ -93,7 +93,7 @@ genomic region, placement, and \link[grid]{grob} information.
 Plot a chromosome ideogram with or without cytobands
 }
 \details{
-An ideogram can be placed on a plotgardener coordinate page by
+An ideogram can be placed on a plotlandscaper coordinate page by
 providing plot placement parameters:
 \preformatted{
 plotIdeogram(chrom,

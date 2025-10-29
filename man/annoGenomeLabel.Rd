@@ -83,7 +83,7 @@ text height. Default value is \code{tcl = 0.5}.}
 with a numeric value specifying genome label y-location.
 The character value will place the genome label y relative to the bottom
 of the most recently plotted plot according to the units of the
-plotgardener page.}
+plotlandscaper page.}
 
 \item{just}{Justification of genome label relative to its (x, y) location.
 If there are two values, the first value specifies horizontal justification
@@ -96,7 +96,7 @@ Default value is \code{just = c("left", "top")}.}
 if \code{x} or \code{y} are only given as numerics.
 Default value is \code{default.units = "inches"}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object containing
+\item{params}{An optional \link[plotlandscaper]{pgParams} object containing
 relevant function parameters.}
 
 \item{...}{Additional grid graphical parameters or digit specifications.

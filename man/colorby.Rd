@@ -2,7 +2,7 @@
 % Please edit documentation in R/colorby.R
 \name{colorby}
 \alias{colorby}
-\title{Handle plotgardener color scaling parameters}
+\title{Handle plotlandscaper color scaling parameters}
 \usage{
 colorby(column, palette = NULL, range = NULL, scalePerRegion = FALSE)
 }

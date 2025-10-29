@@ -36,7 +36,7 @@ plotGenes(
 \item{chromend}{Integer end position on chromosome to be plotted.}
 
 \item{assembly}{Default genome assembly as a string or a
-\link[plotgardener]{assembly} object.
+\link[plotlandscaper]{assembly} object.
 Default value is \code{assembly = "hg38"}.}
 
 \item{fontsize}{A numeric specifying text fontsize in points.
@@ -79,7 +79,7 @@ Default value is \code{bg = NA}.}
 combined with a numeric value specifying genes plot y-location.
 The character value will
 place the genes plot y relative to the bottom of the most recently
-plotted plot according to the units of the plotgardener page.}
+plotted plot according to the units of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying genes plot width.}
 
@@ -99,7 +99,7 @@ as numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output
 should be produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 }
 \value{
@@ -189,6 +189,6 @@ annoGenomeLabel(
 pageGuideHide()
 }
 \seealso{
-\link[plotgardener]{assembly},
-\link[plotgardener]{genomes}, \link[plotgardener]{defaultPackages}
+\link[plotlandscaper]{assembly},
+\link[plotlandscaper]{genomes}, \link[plotlandscaper]{defaultPackages}
 }

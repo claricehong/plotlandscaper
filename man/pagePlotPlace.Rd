@@ -18,7 +18,7 @@ pagePlotPlace(
 }
 \arguments{
 \item{plot}{Plot object to be placed, defined by the
-output of a plotgardener plotting function.}
+output of a plotlandscaper plotting function.}
 
 \item{x}{A numeric or unit object specifying plot x-location.}
 
@@ -26,7 +26,7 @@ output of a plotgardener plotting function.}
 with a numeric value specifying plot y-location.
 The character value will place the plot y relative to the bottom
 of the most recently plotted plot according to the units
-of the plotgardener page.}
+of the plotlandscaper page.}
 
 \item{width}{A numeric or unit object specifying plot width.}
 
@@ -46,7 +46,7 @@ given as numerics. Default value is \code{default.units = "inches"}.}
 \item{draw}{A logical value indicating whether graphics output
 should be produced. Default value is \code{draw = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 }
 \value{

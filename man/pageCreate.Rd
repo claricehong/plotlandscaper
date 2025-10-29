@@ -2,7 +2,7 @@
 % Please edit documentation in R/pageCreate.R
 \name{pageCreate}
 \alias{pageCreate}
-\title{Create a page for a plotgardener layout}
+\title{Create a page for a plotlandscaper layout}
 \usage{
 pageCreate(
     width = 8.5,
@@ -39,14 +39,14 @@ horizontal gridlines. Default value is \code{ygrid = 0.5}.}
 black border around the entire page and guiding rulers along the top and
 left side of the page. Default value is \code{showOutline = TRUE}.}
 
-\item{params}{An optional \link[plotgardener]{pgParams} object
+\item{params}{An optional \link[plotlandscaper]{pgParams} object
 containing relevant function parameters.}
 }
 \value{
 None.
 }
 \description{
-Create a page for a plotgardener layout
+Create a page for a plotlandscaper layout
 }
 \details{
 \code{width} and \code{height} must be specified in the same units.
