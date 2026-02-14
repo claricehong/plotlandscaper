@@ -170,6 +170,8 @@
 #' }
 #'
 #' @seealso \link[plotlandscaper]{readHic}, \link[plotlandscaper]{readCool}
+#' 
+#' @importFrom rasterize grid.rasterize
 #'
 #' @export
 plotHicSquare <- function(data, resolution = "auto", zrange = NULL,

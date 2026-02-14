@@ -101,8 +101,10 @@
 #'
 #' ## Hide page guides
 #' pageGuideHide()
+
+#' @importFrom gridtext richtext_grob
+
 #' @export
-library(gridtext)
 
 annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                                 fontcolor = "dark grey", scientific = FALSE,
@@ -424,7 +426,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                     vp = tickVP
                 )
                 
-                ticktextGrobs = gridtext::richtext_grob(
+                ticktextGrobs = richtext_grob(
                     text = lapply(heatmapLegendInternal$breaks, as.character), 
                     x = 1.3, y = breaks,
                     hjust = 0,
@@ -442,7 +444,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                     gp = gpar(col = heatmapLegendInternal$gp$linecol),
                     vp = tickVP
                 )
-                ticktextGrobs = gridtext::richtext_grob(
+                ticktextGrobs = richtext_grob(
                     text = lapply(heatmapLegendInternal$breaks, as.character), 
                     x = -0.3, y = breaks,
                     hjust = 1,
@@ -572,7 +574,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 vp = tickVP
             )
             
-            ticktextGrobs = gridtext::richtext_grob(
+            ticktextGrobs = richtext_grob(
                 text = lapply(heatmapLegendInternal$breaks, as.character), 
                 y = 0.8, x = breaks,
                 vjust = 1.9,
