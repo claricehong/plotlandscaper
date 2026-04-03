@@ -450,7 +450,7 @@ plotSignal <- function(data, binSize = NA, binCap = TRUE, negData = FALSE,
                         } else {
                         signaltrack$range <- c(0, 1)
                         }
-                    
+
                 } else {
                     signaltrack$range <- c(0, 1)
                 }
@@ -501,33 +501,67 @@ plotSignal <- function(data, binSize = NA, binCap = TRUE, negData = FALSE,
 
             gp$fill <- fillCol
 
+            ## Draw filled polygon with no outline to avoid horizontal
+            ## closing edges at y=0
+            fillGp <- gp
+            fillGp$col <- NA
             sigGrob <- polygonGrob(
                 x = c(
                     signal[1, "x"], signal[, "x"],
                     signal[nrow(signal), "x"]
                 ),
-                y = c(0, signal[, "score"], 0), gp = gp,
+                y = c(0, signal[, "score"], 0), gp = fillGp,
                 default.units = "native"
             )
+            assign("signal_grobs",
+                addGrob(
+                    gTree = get("signal_grobs", envir = pgEnv),
+                    child = sigGrob
+                ),
+                envir = pgEnv
+            )
+
+            ## Draw only the top signal line as segments
+            lineGp <- gp
+            lineGp$fill <- NA
+            sigLine <- segmentsGrob(
+                x0 = signal[seq(1, nrow(signal) - 1), "x"],
+                y0 = signal[seq(1, nrow(signal) - 1), "score"],
+                x1 = signal[seq(2, nrow(signal)), "x"],
+                y1 = signal[seq(2, nrow(signal)), "score"],
+                gp = lineGp, default.units = "native"
+            )
+            assign("signal_grobs",
+                addGrob(
+                    gTree = get("signal_grobs", envir = pgEnv),
+                    child = sigLine
+                ),
+                envir = pgEnv
+            )
         } else {
+            x0 <- signal[seq(1, nrow(signal) - 1), "x"]
+            y0 <- signal[seq(1, nrow(signal) - 1), "score"]
+            x1 <- signal[seq(2, nrow(signal)), "x"]
+            y1 <- signal[seq(2, nrow(signal)), "score"]
+
+            ## Skip flat zero-to-zero segments to avoid a spurious
+            ## horizontal line at y=0 across no-signal regions
+            keep <- !(y0 == 0 & y1 == 0)
             sigGrob <- segmentsGrob(
-                x0 = signal[seq(1, length(signal[, "x"]) - 1), "x"],
-                y0 = signal[seq(1, length(signal[, "score"]) - 1), "score"],
-                x1 = signal[seq(2, length(signal[, "x"])), "x"],
-                y1 = signal[seq(2, length(signal[, "score"])), "score"],
+                x0 = x0[keep], y0 = y0[keep],
+                x1 = x1[keep], y1 = y1[keep],
                 gp = gp, default.units = "native"
             )
+
+            ## Add grob to gtree
+            assign("signal_grobs",
+                addGrob(
+                    gTree = get("signal_grobs", envir = pgEnv),
+                    child = sigGrob
+                ),
+                envir = pgEnv
+            )
         }
-
-
-        ## Add grob to gtree
-        assign("signal_grobs",
-            addGrob(
-                gTree = get("signal_grobs", envir = pgEnv),
-                child = sigGrob
-            ),
-            envir = pgEnv
-        )
     }
 
     ## Define a function that finds data that falls out of the plot's
@@ -732,7 +766,7 @@ plotSignal <- function(data, binSize = NA, binCap = TRUE, negData = FALSE,
                 posSignal <- signal[which(signal[, "score"] >= 0), ]
                 negSignal <- signal[which(signal[, "score"] < 0), ]
                 negSignal[, "score"] <- negSignal[, "score"] * -1
-                split <- TRUE 
+                split <- TRUE
             }
 
         } else {
@@ -959,19 +993,21 @@ plotSignal <- function(data, binSize = NA, binCap = TRUE, negData = FALSE,
                     side = "top"
                 )
             } else {
-                sigInternal$gp$col <- lines[[1]]
-                posGrob <- segmentsGrob(
-                    x0 = 0, y0 = unit(0, "native"),
-                    x1 = 1, y1 = unit(0, "native"),
-                    gp = sigInternal$gp
-                )
-                assign("signal_grobs",
-                    addGrob(
-                        gTree = get("signal_grobs", envir = pgEnv),
-                        child = posGrob
-                    ),
-                    envir = pgEnv
-                )
+                if (sigInternal$baseline == TRUE) {
+                    sigInternal$gp$col <- lines[[1]]
+                    posGrob <- segmentsGrob(
+                        x0 = 0, y0 = unit(0, "native"),
+                        x1 = 1, y1 = unit(0, "native"),
+                        gp = sigInternal$gp
+                    )
+                    assign("signal_grobs",
+                        addGrob(
+                            gTree = get("signal_grobs", envir = pgEnv),
+                            child = posGrob
+                        ),
+                        envir = pgEnv
+                    )
+                }
                 warning("Not enough top signal data to plot.", call. = FALSE)
             }
 
@@ -987,41 +1023,45 @@ plotSignal <- function(data, binSize = NA, binCap = TRUE, negData = FALSE,
                     side = "bottom"
                 )
             } else {
-                sigInternal$gp$col <- lines[[2]]
-                negGrob <- segmentsGrob(
-                    x0 = 0, y0 = unit(0, "native"),
-                    x1 = 1, y1 = unit(0, "native"),
-                    gp = sigInternal$gp
-                )
-                assign("signal_grobs",
-                    addGrob(
-                        gTree = get("signal_grobs", envir = pgEnv),
-                        child = negGrob
-                    ),
-                    envir = pgEnv
-                )
+                if (sigInternal$baseline == TRUE) {
+                    sigInternal$gp$col <- lines[[2]]
+                    negGrob <- segmentsGrob(
+                        x0 = 0, y0 = unit(0, "native"),
+                        x1 = 1, y1 = unit(0, "native"),
+                        gp = sigInternal$gp
+                    )
+                    assign("signal_grobs",
+                        addGrob(
+                            gTree = get("signal_grobs", envir = pgEnv),
+                            child = negGrob
+                        ),
+                        envir = pgEnv
+                    )
+                }
                 warning("Not enough bottom signal data to plot.",
                     call. = FALSE
                 )
             }
 
 
-            lineGrob <- segmentsGrob(
-                x0 = unit(0, "npc"), x1 = unit(1, "npc"),
-                y0 = 0, y1 = 0,
-                gp = gpar(
-                    col = sigInternal$baseline.color,
-                    lwd = sigInternal$baseline.lwd
-                ),
-                default.units = "native"
-            )
-            assign("signal_grobs",
-                addGrob(
-                    gTree = get("signal_grobs", envir = pgEnv),
-                    child = lineGrob
-                ),
-                envir = pgEnv
-            )
+            if (sigInternal$baseline == TRUE) {
+                lineGrob <- segmentsGrob(
+                    x0 = unit(0, "npc"), x1 = unit(1, "npc"),
+                    y0 = 0, y1 = 0,
+                    gp = gpar(
+                        col = sigInternal$baseline.color,
+                        lwd = sigInternal$baseline.lwd
+                    ),
+                    default.units = "native"
+                )
+                assign("signal_grobs",
+                    addGrob(
+                        gTree = get("signal_grobs", envir = pgEnv),
+                        child = lineGrob
+                    ),
+                    envir = pgEnv
+                )
+            }
         } else {
             if (nrow(posSignal) >= 2) {
                 if (sigInternal$baseline == TRUE) {

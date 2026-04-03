@@ -9,6 +9,7 @@
 #'     digits = 1,
 #'     ticks = FALSE,
 #'     breaks = NULL,
+#'     power10 = TRUE,
 #'     border = TRUE,
 #'     x,
 #'     y,
@@ -40,6 +41,10 @@
 #' colorbar should be visible. Default value is \code{ticks = FALSE}.
 #' @param breaks A numeric vector specifying tick breaks.
 #' Default value is \code{breaks = NULL}.
+#' @param power10 Logical value specifying whether tick break labels should be
+#' formatted as powers of 10 (e.g. \eqn{10^{-4}} instead of \code{1e-4}).
+#' Useful when \code{breaks} are powers of 10, such as on a log10 scale.
+#' Default value is \code{power10 = TRUE}.
 #' @param border Logical value indicating whether to add a border around
 #' heatmap legend. Default value is \code{border = FALSE}.
 #' @param x A numeric or unit object specifying x-location of legend.
@@ -109,14 +114,23 @@
 annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                                 fontcolor = "dark grey", scientific = FALSE,
                                 digits = 1, ticks = FALSE, breaks = NULL,
+                                power10 = TRUE,
                                 border = TRUE, x, y, width, height,
                                 just = c("left", "top"), border_width = 1,
-                                flip = FALSE, 
+                                flip = FALSE,
                                 default.units = "inches", params = NULL, ...) {
 
     # =========================================================================
     # FUNCTIONS
     # =========================================================================
+
+    ## Format a numeric vector as HTML superscript power-of-10 labels
+    format_power10_labels <- function(vals) {
+        lapply(vals, function(v) {
+            exp_val <- round(log10(v))
+            paste0("10<sup>", exp_val, "</sup>")
+        })
+    }
 
     ## Define a function that catches errors for annoHeatmapLegend
     errorcheck_annoHeatmapLegend <- function(heatmapLegend, orientation) {
@@ -146,6 +160,11 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
         declaredArgs = lapply(match.call()[-1], eval.parent, n = 2),
         class = "heatmapLegendInternal"
     )
+
+    ## Fallback for parameters that parseParams may not resolve correctly
+    if (is.null(heatmapLegendInternal$power10)) {
+        heatmapLegendInternal$power10 <- power10
+    }
 
     ## Set gp
     heatmapLegendInternal$gp <-
@@ -404,6 +423,11 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 (length(breaks) + 1),
                 (length(breaks) + length(breaks))
             )
+            tick_labels <- if (heatmapLegendInternal$power10) {
+                format_power10_labels(heatmapLegendInternal$breaks)
+            } else {
+                lapply(heatmapLegendInternal$breaks, as.character)
+            }
             if (heatmapLegendInternal$flip == FALSE){
                 tickGrobs <- polylineGrob(
                     # x = unit(c(
@@ -427,7 +451,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 )
                 
                 ticktextGrobs = richtext_grob(
-                    text = lapply(heatmapLegendInternal$breaks, as.character), 
+                    text = tick_labels,
                     x = 1.3, y = breaks,
                     hjust = 0,
                     default.units = "native",
@@ -445,7 +469,7 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                     vp = tickVP
                 )
                 ticktextGrobs = richtext_grob(
-                    text = lapply(heatmapLegendInternal$breaks, as.character), 
+                    text = tick_labels,
                     x = -0.3, y = breaks,
                     hjust = 1,
                     default.units = "native",
@@ -574,8 +598,13 @@ annoHeatmapLegend <- function(plot, orientation = "v", fontsize = 11,
                 vp = tickVP
             )
             
+            tick_labels <- if (heatmapLegendInternal$power10) {
+                format_power10_labels(heatmapLegendInternal$breaks)
+            } else {
+                lapply(heatmapLegendInternal$breaks, as.character)
+            }
             ticktextGrobs = richtext_grob(
-                text = lapply(heatmapLegendInternal$breaks, as.character), 
+                text = tick_labels,
                 y = 0.8, x = breaks,
                 vjust = 1.9,
                 default.units = "native",

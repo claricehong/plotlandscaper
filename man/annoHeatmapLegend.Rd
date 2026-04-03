@@ -13,6 +13,7 @@ annoHeatmapLegend(
     digits = 1,
     ticks = FALSE,
     breaks = NULL,
+    power10 = TRUE,
     border = TRUE,
     x,
     y,
@@ -52,6 +53,11 @@ colorbar should be visible. Default value is \code{ticks = FALSE}.}
 
 \item{breaks}{A numeric vector specifying tick breaks.
 Default value is \code{breaks = NULL}.}
+
+\item{power10}{Logical value specifying whether tick break labels should be
+formatted as powers of 10 (e.g. \eqn{10^{-4}} instead of \code{1e-4}).
+Useful when \code{breaks} are powers of 10, such as on a log10 scale.
+Default value is \code{power10 = TRUE}.}
 
 \item{border}{Logical value indicating whether to add a border around
 heatmap legend. Default value is \code{border = FALSE}.}
